@@ -1,14 +1,17 @@
-import com.foodle.app.DTO.CustomerDTO;
-import com.foodle.app.DTO.EmployeeDTO;
-import com.foodle.app.DTO.LoginDTO;
-import com.foodle.app.DTO.MenuDTO;
-import com.foodle.app.DTO.MenuImgDTO;
-import com.foodle.app.DTO.RestaurantsDTO;
-import com.foodle.app.model.Customer;
-import com.foodle.app.model.Menu;
-import com.foodle.app.service.CustomerService;
-import com.foodle.app.service.EmployeeService;
-import com.foodle.app.service.RestaurantService;
+package main.java.com.application.springapp.controller;
+
+import com.application.springapp.DTO.CustomerDTO;
+
+import com.application.springapp.DTO.EmployeeDTO;
+import com.application.springapp.DTO.LoginDTO;
+import com.application.springapp.DTO.MenuDTO;
+import com.application.springapp.DTO.MenuImgDTO;
+import com.application.springapp.DTO.RestaurantsDTO;
+import com.application.springapp.model.Customer;
+import com.application.springapp.model.Menu;
+import com.application.springapp.service.CustomerService;
+import com.application.springapp.service.EmployeeService;
+import com.application.springapp.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
