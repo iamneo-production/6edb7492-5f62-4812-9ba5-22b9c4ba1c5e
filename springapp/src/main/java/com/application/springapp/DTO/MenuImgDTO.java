@@ -1,18 +1,23 @@
-public class MenuDTO {
+package com.application.springapp.DTO;
+import org.springframework.http.ResponseEntity;
+
+public class MenuImgDTO {
 	private Long id;
     private String name;
     private String cuisine;
     private int price;
-	public MenuDTO() {
+    private ResponseEntity<byte[]> image;
+	public MenuImgDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MenuDTO(Long id, String name, String cuisine, int price) {
+	public MenuImgDTO(Long id, String name, String cuisine, int price, ResponseEntity<byte[]> image) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.cuisine = cuisine;
 		this.price = price;
+		this.image = image;
 	}
 	public Long getId() {
 		return id;
@@ -38,4 +43,11 @@ public class MenuDTO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	public ResponseEntity<byte[]> getImage() {
+		return image;
+	}
+	public void setImage(ResponseEntity<byte[]> image) {
+		this.image = image;
+	}
+    
 }
