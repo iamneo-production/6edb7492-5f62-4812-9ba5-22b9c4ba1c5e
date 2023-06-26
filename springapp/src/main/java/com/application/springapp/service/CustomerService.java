@@ -10,5 +10,3 @@ public interface CustomerService {
 
 	String loginCustomer(LoginDTO loginDTO);
 }
-
-
