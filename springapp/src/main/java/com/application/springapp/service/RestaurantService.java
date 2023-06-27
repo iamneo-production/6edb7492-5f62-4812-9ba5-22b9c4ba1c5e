@@ -10,7 +10,8 @@ import com.application.springapp.DTO.MenuDTO;
 import com.application.springapp.DTO.MenuImgDTO;
 import com.application.springapp.DTO.RestaurantsDTO;
 import com.application.springapp.model.Menu;
-
+import org.springframework.stereotype.Service;
+@Service
 public interface RestaurantService {
 
 	String addRestaurant(RestaurantsDTO rest);
