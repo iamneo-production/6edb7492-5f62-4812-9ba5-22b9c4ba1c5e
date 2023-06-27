@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { GoogleLogin } from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -43,7 +41,7 @@ export const DeliveryRegister = (props) => {
       }
       else{
       e.preventDefault();
-      await axios.post("http://localhost:8090/registeremployee",
+      await axios.post("http://localhost:8080/registeremployee",
       {
       
           empName: name,
