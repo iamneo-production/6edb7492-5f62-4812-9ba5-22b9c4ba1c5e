@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { GoogleLogin } from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -22,7 +20,7 @@ export const OwnerRegister = (props) => {
       }
       else{
       e.preventDefault();
-      await axios.post("http://localhost:8090/restaurantregistration",
+      await axios.post("http://localhost:8080/restaurantregistration",
       {
       
           restaurantName: name,

@@ -1,6 +1,4 @@
 import React,{useState} from "react";
-import { GoogleLogin } from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./Login.css";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
@@ -14,7 +12,7 @@ import {useNavigate} from 'react-router-dom';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8090/customerlogin",
+        await axios.post("http://localhost:8080/customerlogin",
         {
             email : email,
             password : pass,
