@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams,useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 import axios from "axios";
+import { baseUrl } from "../Add Restrauants/OwnerLogin";
 
 const ViewDish = () => {
   
@@ -34,7 +35,7 @@ const ViewDish = () => {
     // }, []);
 
     const loadDish=async ()=>{
-        await axios.get(`http://localhost:8080/dish/${id}`)
+        await axios.get(`${baseUrl}/dish/${id}`)
         .then(response => {
           setdish(response.data);
           setImages(`data:image/jpeg;base64, ${dish.image.body}`);

@@ -3,6 +3,8 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+export const baseUrl = "https://8080-edbeffbdcbbfeabebeabeaeaadbdbabf.project.examly.io";
+
 export const DeliveryRegister = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -41,7 +43,7 @@ export const DeliveryRegister = (props) => {
       }
       else{
       e.preventDefault();
-      await axios.post("http://localhost:8080/registeremployee",
+      await axios.post(`${baseUrl}/registeremployee`,
       {
       
           empName: name,
