@@ -1,6 +1,7 @@
 package main.java.com.application.springapp.controller;
 
 import com.application.springapp.DTO.CustomerDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.application.springapp.DTO.EmployeeDTO;
 import com.application.springapp.DTO.LoginDTO;
@@ -23,7 +24,8 @@ import java.util.List;
 
 
 public class AppController {
-
+	@Autowired
+	private RestaurantService restaurantService;
     @PostMapping("/dish")
     Menu newdish(@RequestParam("productImage") MultipartFile file,
     		@RequestParam("mainId") String id,

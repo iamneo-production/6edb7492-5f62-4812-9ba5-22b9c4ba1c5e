@@ -1,11 +1,6 @@
 package com.application.springapp.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-
+import javax.persistence.*;
 @Entity
 public class Customer {
 	

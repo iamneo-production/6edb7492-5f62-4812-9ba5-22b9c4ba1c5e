@@ -1,6 +1,5 @@
 package com.application.springapp.model;
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 @Entity
 @Table(name = "food_image")
 public class ProductImage {
