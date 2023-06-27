@@ -1,0 +1,28 @@
+.topnav {
+    overflow: hidden;
+    background-color: #ffc107;
+  }
+  
+  .navtxt {
+    position: relative;
+    left: +1460px;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .navtxt:hover {
+    background-color: orange;
+  }
+  .brand {
+    position: relative;
+    left: -20px;
+    font-size: 30px;
+    color: black;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  
