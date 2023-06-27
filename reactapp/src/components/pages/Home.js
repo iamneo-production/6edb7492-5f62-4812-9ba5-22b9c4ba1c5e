@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Home.module.css";
+import { baseUrl } from "../Add Restrauants/OwnerLogin";
 // import "./bootstrap/dist/css/bootstrap.min.css";
 // import Navbar1 from "./components/layout/Navbar1";
 
@@ -17,13 +18,13 @@ const Home = () => {
   }, []);
 
   const loadDishes = async () => {
-    const result = await axios.get(`http://localhost:8090/dishes/${id}`);
+    const result = await axios.get(`${baseUrl}/${id}`);
     setdishes(result.data);
     console.log(result.data);
   };
 
   const deleteDishes=async (id)=>{
-    await axios.delete(`http://localhost:8090/dish/${id}`)
+    await axios.delete(`${baseUrl}/dish/${id}`)
     loadDishes()
   }
   return (

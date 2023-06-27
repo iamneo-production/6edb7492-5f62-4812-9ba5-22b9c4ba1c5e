@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "./OwnerLogin";
 
 
 export const OwnerRegister = (props) => {
@@ -20,7 +21,7 @@ export const OwnerRegister = (props) => {
       }
       else{
       e.preventDefault();
-      await axios.post("http://localhost:8080/restaurantregistration",
+      await axios.post(`${baseUrl}/restaurantregistration`,
       {
       
           restaurantName: name,

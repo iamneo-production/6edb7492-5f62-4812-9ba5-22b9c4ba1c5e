@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import "./Login.css";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
+import { baseUrl } from "../Add Restrauants/OwnerLogin";
 
 
  export const Login = (props) => {
@@ -12,7 +13,7 @@ import {useNavigate} from 'react-router-dom';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8080/customerlogin",
+        await axios.post(`${baseUrl}/customerlogin`,
         {
             email : email,
             password : pass,
