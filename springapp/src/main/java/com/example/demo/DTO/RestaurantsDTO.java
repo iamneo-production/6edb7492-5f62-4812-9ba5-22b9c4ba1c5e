@@ -2,7 +2,6 @@ package com.example.demo.DTO;
 
 import java.util.List;
 
-import com.example.demo.model.Menu;
 
 public class RestaurantsDTO {
 	private Long restaurantId;

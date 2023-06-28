@@ -1,30 +1,32 @@
-package com.foodle.app.DTO;
+package com.example.demo.model;
+
 
 import java.util.List;
 
-import com.foodle.app.model.Menu;
-;
+import javax.persistence.*;
 
-public class RestaurantsDTO {
+@Entity 
+
+public class Restaurants {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long restaurantId;
     private String restaurantName;
     private String restaurantLocation;
     private String restaurantEmail;
     private String restaurantPassword;
-    private List<Menu> restaurantmenu;
-	public RestaurantsDTO() {
+	public Restaurants() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public RestaurantsDTO(Long restaurantId, String restaurantName, String restaurantLocation, String restaurantEmail,
-			String restaurantPassword, List<Menu> restaurantmenu) {
+	public Restaurants(Long restaurantId, String restaurantName, String restaurantLocation, String restaurantEmail,
+			String restaurantPassword) {
 		super();
 		this.restaurantId = restaurantId;
 		this.restaurantName = restaurantName;
 		this.restaurantLocation = restaurantLocation;
 		this.restaurantEmail = restaurantEmail;
 		this.restaurantPassword = restaurantPassword;
-		this.restaurantmenu = restaurantmenu;
 	}
 	public Long getRestaurantId() {
 		return restaurantId;
@@ -55,11 +57,5 @@ public class RestaurantsDTO {
 	}
 	public void setRestaurantPassword(String restaurantPassword) {
 		this.restaurantPassword = restaurantPassword;
-	}
-	public List<Menu> getRestaurantmenu() {
-		return restaurantmenu;
-	}
-	public void setRestaurantmenu(List<Menu> restaurantmenu) {
-		this.restaurantmenu = restaurantmenu;
 	}
 }

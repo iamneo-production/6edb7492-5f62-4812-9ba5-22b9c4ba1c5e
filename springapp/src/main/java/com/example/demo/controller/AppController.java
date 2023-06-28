@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.RestaurantsDTO;
+import com.example.demo.DTO.LoginDTO;
 
 import com.example.demo.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,4 @@ public class AppController {
 		String id=restaurantService.loginRestaurant(loginDTO);
 		return id;
 	}
-    
 }
