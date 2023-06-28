@@ -1,8 +1,9 @@
-package com.application.springapp.DTO;
+package com.foodle.app.DTO;
+
 import java.util.List;
 
-import com.application.springapp.model.Menu;
-
+import com.foodle.app.model.Menu;
+;
 
 public class RestaurantsDTO {
 	private Long restaurantId;

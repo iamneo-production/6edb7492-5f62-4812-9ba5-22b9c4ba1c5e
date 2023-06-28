@@ -1,17 +1,16 @@
-package com.application.springapp.service;
+package com.foodle.app.service;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.application.springapp.DTO.LoginDTO;
-import com.application.springapp.DTO.MenuDTO;
-import com.application.springapp.DTO.MenuImgDTO;
-import com.application.springapp.DTO.RestaurantsDTO;
-import com.application.springapp.model.Menu;
-import org.springframework.stereotype.Service;
-@Service
+import com.foodle.app.DTO.LoginDTO;
+import com.foodle.app.DTO.MenuDTO;
+import com.foodle.app.DTO.MenuImgDTO;
+import com.foodle.app.DTO.RestaurantsDTO;
+import com.foodle.app.model.Menu;
+
 public interface RestaurantService {
 
 	String addRestaurant(RestaurantsDTO rest);
