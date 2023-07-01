@@ -1,8 +1,0 @@
-com/example/demo/model/Restaurants.class
-com/example/demo/DemoApplication.class
-com/example/demo/controller/AppController.class
-com/example/demo/DTO/LoginDTO.class
-com/example/demo/serviceImpl/RestaurantServiceImpl.class
-com/example/demo/service/RestaurantService.class
-com/example/demo/DTO/RestaurantsDTO.class
-com/example/demo/repository/RestaurantRepository.class
