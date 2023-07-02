@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form,Container} from 'react-bootstrap';
+import { baseUrl } from "../Add Restrauants/OwnerLogin";
 
 const AddDish = () => {
     let navigate=useNavigate()
@@ -46,7 +47,7 @@ const AddDish = () => {
     formData.append('price',price);
     if(selectedImage!=null)
     {
-    await axios.post(`http://localhost:8080/dish`,formData)
+    await axios.post(`${baseUrl}/dish`,formData)
     navigate(-1)
     }
     else
