@@ -1,7 +1,8 @@
 import React from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
-
+import HeroSlider from '../Body section/hero-slider/HeroSlider';
+// import {Link} from 'react-scroll'
 
 
 
@@ -50,11 +51,26 @@ const Navbar2 = () => {
         
           <Link to="/login">Customer Login</Link>
         </li>
-       
+        <li>
+        <Link to="/search">
+        <span><i class="fa-solid fa-magnifying-glass" /></span>
+        </Link>
+        </li>
 
       </ul>
        
     </nav>
+
+   
+     
+    
+
+
+    
+
+
+         
+        
 
   </header>
             
