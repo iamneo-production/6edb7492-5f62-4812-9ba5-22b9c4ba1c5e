@@ -3,6 +3,8 @@ import "./Login.css";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 
+export const baseUrl = "https://8080-edbeffbdcbbfeabebeabeaeaadbdbabf.project.examly.io";
+
 
  export const DeliveryLogin = (props) => {
     const navigate = useNavigate();
@@ -12,7 +14,7 @@ import {useNavigate} from 'react-router-dom';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8080/employeelogin",
+        await axios.post(`${baseUrl}/employeelogin`,
         {
             email : email,
             password : pass,
