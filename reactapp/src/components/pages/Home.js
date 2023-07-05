@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Home.module.css";
-import { baseUrl } from "../Add Restrauants/OwnerLogin";
+import { baseUrl } from "../API/Api";
 // import "./bootstrap/dist/css/bootstrap.min.css";
 // import Navbar1 from "./components/layout/Navbar1";
 
