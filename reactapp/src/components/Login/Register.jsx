@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from "react";
-import "./Login.css";
+import "./login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "../Add Restrauants/OwnerLogin";
+import { baseUrl } from "../API/Api";
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');

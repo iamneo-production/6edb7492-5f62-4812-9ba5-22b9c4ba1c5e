@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import Navbar from './components/Navbar Section/Navbar';
 import Body from './components/Body Section/Body';
 import Login from './components/Login/Login';
-import OwnerLogin from './components/Add Restrauants/OwnerLogin';
+import OwnerLogin from './components/AddRestraunts/OwnerLogin';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,7 +18,7 @@ import DeliveryRegister from "./components/Delivery Jobs/Delivery LogandReg/Deli
 import DeliveryHome from "./components/Delivery Jobs/DeliveryHome/DeliveryHome";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from './components/Login/Register';
-import OwnerRegister from './components/Add Restrauants/OwnerRegister';
+import OwnerRegister from './components/AddRestraunts/OwnerRegister';
 import Search from './components/Navbar Section/Search';
 import Footer from './components/Footer/Footer';
 

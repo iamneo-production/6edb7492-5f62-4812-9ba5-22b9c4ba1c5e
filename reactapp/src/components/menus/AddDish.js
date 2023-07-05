@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form,Container} from 'react-bootstrap';
-import { baseUrl } from "../Add Restrauants/OwnerLogin";
+import { baseUrl } from "../API/Api";
 
 const AddDish = () => {
     let navigate=useNavigate()

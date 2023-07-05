@@ -1,9 +1,8 @@
 import React,{useState} from "react";
-import "./Login.css";
+import "./login.css";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-import { baseUrl } from "../Add Restrauants/OwnerLogin";
-
+import { baseUrl } from "../API/Api";
 
  export const Login = (props) => {
     const navigate = useNavigate();
