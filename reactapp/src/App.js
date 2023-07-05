@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
 import Navbar from './components/Navbar Section/Navbar';
-import Body from './components/Body section/Body';
+import Body from './components/Body Section/Body';
 import Login from './components/Login/Login';
-import OwnerLogin from './components/AddRestraunts/OwnerLogin'
+import OwnerLogin from './components/Add Restrauants/OwnerLogin';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,13 +12,13 @@ import UpdateDish from "./components/menus/UpdateDish";
 import ViewDish from "./components/menus/ViewDish";
 import Navbar1 from './components/Navbar Section/Navbar1';
 import Navbar2 from './components/Navbar Section/Navbar2';
-import HeroSlider from './components/Body section/hero-slider/HeroSlider';
+import HeroSlider from './components/Body Section/hero-slider/HeroSlider';
 import DeliveryLogin from "./components/Delivery Jobs/Delivery LogandReg/DeliveryLogin";
 import DeliveryRegister from "./components/Delivery Jobs/Delivery LogandReg/DeliveryRegister";
 import DeliveryHome from "./components/Delivery Jobs/DeliveryHome/DeliveryHome";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from './components/Login/Register';
-import OwnerRegister from './components/AddRestraunts/OwnerRegister';
+import OwnerRegister from './components/Add Restrauants/OwnerRegister';
 import Search from './components/Navbar Section/Search';
 import Footer from './components/Footer/Footer';
 

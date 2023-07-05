@@ -1,9 +1,8 @@
 import React, { useState,useEffect } from "react";
-import { GoogleLogin } from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../Add Restrauants/OwnerLogin";
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -49,7 +48,7 @@ export const Register = (props) => {
       }
       else{
       e.preventDefault();
-      await axios.post("http://localhost:8090/registercustomer",
+      await axios.post(`${baseUrl}/registercustomer`,
       {
       
           customerName: name,

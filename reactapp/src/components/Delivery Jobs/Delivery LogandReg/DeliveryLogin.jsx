@@ -1,9 +1,9 @@
 import React,{useState} from "react";
-import { GoogleLogin } from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./Login.css";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
+
+export const baseUrl = "https://8080-edbeffbdcbbfeabebeabeaeaadbdbabf.project.examly.io";
 
 
  export const DeliveryLogin = (props) => {
@@ -14,7 +14,7 @@ import {useNavigate} from 'react-router-dom';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8090/employeelogin",
+        await axios.post(`${baseUrl}/employeelogin`,
         {
             email : email,
             password : pass,
