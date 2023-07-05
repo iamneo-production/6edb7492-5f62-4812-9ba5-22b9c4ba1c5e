@@ -1,7 +1,6 @@
 import React from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
-import HeroSlider from '../Body section/hero-slider/HeroSlider';
 // import {Link} from 'react-scroll'
 
 
