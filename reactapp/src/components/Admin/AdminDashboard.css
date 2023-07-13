@@ -1,0 +1,46 @@
+.table-container {
+    width: 500px; /* Adjust the width as per your requirements */
+    margin: 0 auto;
+    margin-top: 50px; /* Add a top margin to center the table vertically */
+  }
+  
+  .brand {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .color-border-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+  
+  .color-border-table th,
+  .color-border-table td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .color-border-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .color-border-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .deletebutton {
+    background-color: #ff0000;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .deletebutton:hover {
+    background-color: #cc0000;
+  }
+  
