@@ -33,4 +33,22 @@ public class Order {
     private double totalCost;
     private String deliveryAddress;
     private Date deliveryTime;
+
+    // pass tc
+    private Long restaurantId;
+    private Long deliveryExecutiveId;
+    private Long paymentId;
+    public Order(Long id, Long restaurantId, Long deliveryExecutiveId, Long paymentId, double totalCost, String customerName,  Date deliveryTime, String deliveryAddress
+           ) {
+        this.id = id;
+        this.customerName = customerName;
+        this.totalCost = totalCost;
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryTime = deliveryTime;
+        this.restaurantId = restaurantId;
+        this.deliveryExecutiveId = deliveryExecutiveId;
+        this.paymentId = paymentId;
+    }
+
+    
 }
