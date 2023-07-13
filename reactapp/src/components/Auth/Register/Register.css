@@ -14,19 +14,27 @@ body {
   }
   
   .auth-form-container {
+    overflow-y: scroll;
     position: fixed;
     top: 50%;
     left: 50%;
+    height: 350px;
     transform: translate(-50%, -50%);
     z-index: 10000;
   }
   
-  
-  
-  
-  
+  .auth-form-container::-webkit-scrollbar {
+    display: none;
+    width: 5px; 
+    background-color: #F5F5F5; 
+    height: 10px;
+    } 
+
+
+
+
   .auth-form-container {
-    max-width: 400px;
+    width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: black;
@@ -45,13 +53,13 @@ body {
     font-size: 20px;
   }
   
-  .login-form label, .register-form label {
+  .register-form label {
     display: block;
     margin-bottom: 10px;
     color: #ffffff;
   }
   
-  .login-form input, .register-form input {
+  .register-form select, .register-form input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -80,7 +88,7 @@ body {
     background-color: yellow;
   }
   
-  
+ 
   
   .google_login {
     margin-top: 20px;
@@ -118,7 +126,7 @@ body {
     background-size: cover;
     color: #fffefe;
     font-size: 25px;
-  
+
   }
   
   .close-button:hover {
@@ -140,7 +148,7 @@ body {
     cursor: pointer;
     padding: 12px 20px;
     font-size: 16px;
-  
+
   }
   .toggle-button:hover{
     background-color: yellow;
