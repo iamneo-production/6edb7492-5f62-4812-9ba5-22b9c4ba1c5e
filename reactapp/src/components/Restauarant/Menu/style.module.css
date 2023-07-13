@@ -1,0 +1,94 @@
+.box{
+    background-color: white;
+    width: 600px;
+    /* box-shadow: 10px 5px 5px grey; */
+    padding: 100px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  .box label,h2
+  {
+    font-size: 22px;
+  }
+  .box b{
+    font-size: 22px;
+  }
+  .cont{
+    font-weight: 100;
+  }
+  
+  .text{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .savebutton {
+    margin-top: 10px;
+    background-color: rgb(110, 227, 110); 
+    color: white;
+    border: none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
+    min-width: 80px;
+  }
+  
+  .savebutton:hover {
+    background-color:darkgreen;
+    transition: 0.5s;
+  }
+  
+  .cancelbutton {
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: rgb(238, 93, 93); 
+    color: white;
+    border: none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
+    min-width: 80px;
+    text-decoration: none;
+  }
+  
+  .cancelbutton:hover {
+    background-color:rgb(242, 9, 9);
+    transition: 0.5s;
+  }
+  
+  .homebutton {
+    position: relative;
+    top: 30px; 
+    margin-top: 10px;
+    margin-bottom: 200px;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: rgb(97, 213, 252);
+  }
+  
+  .homebutton:hover {
+    background-color:rgb(14, 119, 154);
+    transition: 0.5s;
+  }
+  .buttoncontainer {
+    text-align: center;
+  }
+  
+  
+  .list {
+    text-align: center;
+  }
+  .pimage
+  {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 100px;
+  }
