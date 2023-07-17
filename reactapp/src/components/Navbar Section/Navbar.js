@@ -1,6 +1,7 @@
 import React from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
+import HeroSlider from '../FoodlePortal/About/HeroSlider';
 // import {Link} from 'react-scroll'
 
 
@@ -14,7 +15,7 @@ const Navbar = () => {
 <>
   <header className="header">
     <a href='#' className="logo">
-    <img src={require('./assets/Foodle.png')} alt="horse" />
+    <img src={require('../assets/Foodle.png')} alt="Foodle" />
 
     </a>
     <nav className="navbar">
@@ -22,12 +23,11 @@ const Navbar = () => {
 
         <ul>
         <li>
-     
           <Link to="/">Home</Link>
         </li>
         <li>
         
-          <Link to="/about" spy={true} smooth={true}>About</Link>
+          <Link to="/about">About</Link> {/* spy={true} smooth={true} */}
         </li>
         <li>
         
@@ -37,23 +37,8 @@ const Navbar = () => {
         
           <Link to="/Review">Review</Link>
         </li>
-        
         <li>
-        
-          <Link to="/ownerlogin">Restraunts Login</Link>
-        </li>
-        <li>
-        
-          <Link to="/deliverylogin">Delivery Jobs</Link>
-        </li>
-        <li>
-        
-          <Link to="/login">Customer Login</Link>
-        </li>
-        <li>
-        <Link to="/search">
-        <span><i class="fa-solid fa-magnifying-glass" /></span>
-        </Link>
+          <Link to="/login">Login/SignUp</Link>
         </li>
 
       </ul>
