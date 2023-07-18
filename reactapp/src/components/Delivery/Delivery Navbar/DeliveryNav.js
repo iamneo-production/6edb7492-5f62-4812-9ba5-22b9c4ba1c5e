@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.jpeg';
-import './Header.css';
+import './DeliveryNav.css';
 
-const Header = () => {
+const DeliveryNav = () => {
   const profilePicUrl = 'https://img.freepik.com/free-icon/user_318-875902.jpg';
   const [showOptions, setShowOptions] = useState(false);
 
@@ -22,17 +22,7 @@ const Header = () => {
     <div className="header">
       <img src={logo} alt="Logo" style={logoStyle} />
       <div className="profile-icon" onClick={toggleOptions}>
-        <img src={profilePicUrl} alt="Profile" style={profilePicStyle} />
-        {showOptions && (
-          <div className="options-container">
-            <div className="profile-options">
-              <Link to="/profile">Profile</Link>
-              <Link to="/vieworder">Orders</Link>
-              {/* <Link to="/review">Review</Link> */}
-              <Link onClick={handleLogout} >Logout</Link>
-            </div>
-          </div>
-        )}
+      <Link className='log' onClick={handleLogout} >Logout</Link>
       </div>
     </div>
   );
@@ -51,4 +41,4 @@ const profilePicStyle = {
   borderRadius: '50%',
 };
 
-export default Header;
+export default DeliveryNav;
