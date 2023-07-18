@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
+import { baseUrl } from "../../API/Api";
 
 const AddDish = () => {
     let navigate=useNavigate()
@@ -37,7 +38,7 @@ const AddDish = () => {
     formData.append('tags', tags);
     formData.append('file', file);
 
-    axios.post('http://localhost:8080/menu-item/create', formData)
+    axios.post(`${baseUrl}/menu-item/create`, formData)
       .then((response) => {
         console.log(response);
         navigate(-1);
