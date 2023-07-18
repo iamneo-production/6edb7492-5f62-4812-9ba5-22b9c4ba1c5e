@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.springapp.model.MenuItem;
 import com.example.springapp.service.MenuItemService;
 
-import springfox.documentation.annotations.ApiIgnore;
+//import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping("/menu-item")
@@ -32,7 +32,7 @@ public class MenuItemController {
     @Autowired
     private MenuItemService menuItemService;
 
-    @ApiIgnore
+    //@ApiIgnore
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String createMenuItem(@RequestBody MenuItem m) {

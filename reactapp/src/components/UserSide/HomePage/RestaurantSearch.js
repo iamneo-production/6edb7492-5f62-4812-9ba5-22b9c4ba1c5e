@@ -3,6 +3,7 @@ import axios from "axios";
 import TopBrandRestaurants from "./TopBrandRestaurants";
 import "./Searchpage.css"; // Import the CSS file
 import Header from "../../UserSide/NavBar/Header";
+import { baseUrl } from "../../API/Api";
 
 const RestaurantSearch = () => {
   const [locationFilter, setLocationFilter] = useState("");
@@ -12,86 +13,10 @@ const RestaurantSearch = () => {
   const [searchClicked, setSearchClicked] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
 
-  // const restaurants = [
-  //   {
-  //     name: "Restaurant A",
-  //     location: "Location 1",
-  //     image: "https://aabsweets.com/assets/img/logo-a2b.png",
-  //     menuItems: [
-  //       {
-  //         name: "Item 1A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 8.99,
-  //         cuisine: "Indian",
-  //       },
-  //       {
-  //         name: "Item 2A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 9.99,
-  //         cuisine: "Indian",
-  //       },
-  //       {
-  //         name: "Item 3A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 7.99,
-  //         cuisine: "Indian",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: "Restaurant B",
-  //     location: "Location 2",
-  //     image: "https://aabsweets.com/assets/img/logo-a2b.png",
-  //     menuItems: [
-  //       {
-  //         name: "Item 1A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 8.99,
-  //         cuisine: "Indian",
-  //       },
-  //       {
-  //         name: "Item 2A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 9.99,
-  //         cuisine: "Indian",
-  //       },
-  //       {
-  //         name: "Item 3A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 7.99,
-  //         cuisine: "Indian",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: "Restaurant C",
-  //     location: "Location 1",
-  //     image: "https://aabsweets.com/assets/img/logo-a2b.png",
-  //     menuItems: [
-  //       {
-  //         name: "Item 1A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 8.99,
-  //         cuisine: "Indian",
-  //       },
-  //       {
-  //         name: "Item 2A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 9.99,
-  //         cuisine: "Indian",
-  //       },
-  //       {
-  //         name: "Item 3A",
-  //         image: "https://media-cdn.tripadvisor.com/media/photo-s/12/d2/93/48/mini-tiffin.jpg",
-  //         price: 7.99,
-  //         cuisine: "Indian",
-  //       },
-  //     ],
-  //   },
-  // ];
+ 
 
   useEffect(() => {
-    axios.get('http://localhost:8080/restaurant/all')
+    axios.get(`${baseUrl}/restaurant/all`)
         .then(response => {
             console.log(response.data)
             setRestaurants(response.data)
@@ -104,6 +29,10 @@ const RestaurantSearch = () => {
   const handleLocationFilterChange = (event) => {
     setLocationFilter(event.target.value);
   };
+  const handleBack = () => { 
+    setSelectedRestaurant(null)
+}
+
 
   const handleRestaurantFilterChange = (event) => {
     setRestaurantFilter(event.target.value);
@@ -144,24 +73,28 @@ const RestaurantSearch = () => {
                             src={`data:${item.image.headers['Content-Type'][0]};base64,${item.image.body}`}
                         alt={item.restaurantName}
                         className="item-image"
-                       
+                        style={{ height: "200px", width: "200px" }}
                         />
                         )}
-        <p>Cuisine: {item.name}</p>
-        <p>Price: ${item.price.toFixed(2)}</p>
-        <button onClick={() => addToCart(item)}>Add to cart </button>
+        <p style={{ color:"white" }}>Cuisine: {item.name}</p>
+        <p style={{ color:"white" }}>Price: {item.price.toFixed(2)}</p>
+        <button className="searchaddtocart" onClick={() => addToCart(item)}>Add to cart </button>
       </div>
     </div>
   );
 
   const renderMenuItems = (menuItems) => (
     <div className="item-list">
+       <a href="#" className="navprevious navround" onClick={handleBack}>&#8249;</a>
+     
       {menuItems.map(renderMenuItem)}
+     
     </div>
   );
 
   const renderRestaurant = (restaurant) => (
     <div
+    
       key={restaurant.restaurantName}
       className="search-restaurant-card"
       onClick={() => handleRestaurantSelection(restaurant)}
@@ -172,20 +105,21 @@ const RestaurantSearch = () => {
                             src={`data:${restaurant.image.headers['Content-Type'][0]};base64,${restaurant.image.body}`}
                         alt={restaurant.restaurantName}
                         className="item-image"
-                        style={{ height: "200px", width: "200px" }}
+                        style={{ height: "130px", width: "300px" }}
                         />
+                        
       )}
-       <p style={{ color:"black" }}>Loaction : {restaurant.restaurantLocation}</p>
-        <p style={{ color:"black" }}>Email id : {restaurant.restaurantEmail}</p>
-        <p style={{ color:"black" }}>Contact Number : {restaurant.restaurantContact}</p>
-      <div>
-        <h3>{restaurant.restaurantName}</h3>
-      </div>
+        <div>
+     <p style={{ color: "White" }}>{restaurant.restaurantName}</p>
+<br />
+<p style={{ color: "white" }}>Location: {restaurant.restaurantLocation}</p>
+</div>
     </div>
   );
 
   const renderRestaurants = (restaurantsToRender) => (
     <div className="restaurant-list">
+      
       {restaurantsToRender.map(renderRestaurant)}
     </div>
   );
@@ -193,6 +127,7 @@ const RestaurantSearch = () => {
   let filteredRestaurantsContent = null;
   if (searchClicked) {
     if (selectedRestaurant) {
+     
       console.log(selectedRestaurant,"Selected res");
       const { restaurantName, image, restaurantmenu } = selectedRestaurant;
       filteredRestaurantsContent = (
@@ -208,7 +143,9 @@ const RestaurantSearch = () => {
           )}
           <h4>Menu tems</h4>
           {restaurantmenu.length === 0 ? (
-            <p>No menu items found.</p>
+            <p style={{ marginTop: '20px', color: 'white'  }}>
+            No Menu Items Found.
+          </p>
           ) : (
             <div>
               <h4>Menu Items</h4>
@@ -218,7 +155,9 @@ const RestaurantSearch = () => {
         </div>
       );
     } else if (filteredRestaurants.length === 0) {
-      filteredRestaurantsContent = <p>No restaurants found.</p>;
+      filteredRestaurantsContent = <p style={{ marginTop: '20px', color: 'white'  }}>
+      No Restaurant found.
+    </p>
     } else {
       filteredRestaurantsContent = renderRestaurants(filteredRestaurants);
     }
@@ -230,7 +169,6 @@ const RestaurantSearch = () => {
     <div>
 
       <Header></Header>
-     
       <div className="search-bar">
         <label>
          <input
@@ -255,7 +193,9 @@ const RestaurantSearch = () => {
         {selectedRestaurant ? (
           <div>
             {selectedRestaurant.restaurantmenu.length === 0 ? (
-              <p>No menu items found.</p>
+              <p style={{ marginTop: '20px', color: 'white'  }}>
+              No Menu Items Found.
+            </p>
             ) : (
               <div >
                 <h4 style={{ marginLeft: "50px" }}>Menu Items</h4>

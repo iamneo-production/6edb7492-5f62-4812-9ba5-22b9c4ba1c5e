@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Home.module.css";
 import { useParams } from "react-router-dom";
-
+import { baseUrl } from "../../API/Api";
 
 
 const DishHome = () => {
@@ -13,7 +13,7 @@ const DishHome = () => {
 
   const deleteDishes=async (id)=>{
     console.log(id);
-    await axios.delete(`http://localhost:8080/menu-item?menuId=${id}`)
+    await axios.delete(`${baseUrl}/menu-item?menuId=${id}`)
       .then((res) => { 
         console.log(res.data);
         setRefresh(!refresh);
@@ -23,7 +23,7 @@ const DishHome = () => {
   
   useEffect(() => { 
     console.log(id);
-    axios.get("http://localhost:8080/restaurant/all")
+    axios.get(`${baseUrl}/restaurant/all`)
       .then((response) => { 
         setResturant(response.data);
         console.log(response.data);
@@ -70,6 +70,7 @@ const DishHome = () => {
                           <img
                             src={`data:${dish.image.headers['Content-Type'][0]};base64,${dish.image.body}`}
                             alt="Restaurant Image"
+                            style={{ height: '100px', width : '100px'}}
                           />
                         )}
                 <td>

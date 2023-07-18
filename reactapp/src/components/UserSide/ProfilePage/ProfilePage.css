@@ -1,11 +1,18 @@
+/* ProfilePage.css */
+
 .profile-page {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+  /* position: relative; */
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  left: 38%;
+  top: 200px;
+}
+
   
   .profile-page h2 {
     font-size: 24px;
@@ -46,3 +53,4 @@
     color: red;
     margin-top: 5px;
   }
+    
