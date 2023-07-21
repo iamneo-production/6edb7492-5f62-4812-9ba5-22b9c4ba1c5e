@@ -66,7 +66,15 @@
     <artifactId>jackson-databind</artifactId>
 </dependency>
 
+<<<<<<< HEAD
+    <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+    <version>2.5.5</version>
+    </dependency>
+=======
   
+>>>>>>> fd9a0fd17416e6632780fd2b1aa08677446657d2
     <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
 
 
