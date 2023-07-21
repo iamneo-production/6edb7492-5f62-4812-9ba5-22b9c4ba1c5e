@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { baseUrl } from "../../API/Api";
 export const Register = (props) => {
   // const navigate=useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(true);
@@ -67,7 +67,7 @@ export const Register = (props) => {
   const handleSubmit  = async(e) => {
     e.preventDefault(); 
     console.log(formData);
-    axios.post("http://localhost:8080/api/auth/signup", formData)
+    axios.post(`${baseUrl}/api/auth/signup`, formData)
       .then(res => {
         console.log(res.data);
         navigate("/login");
@@ -129,23 +129,16 @@ export const Register = (props) => {
           <label htmlFor="role">Your Role</label>
           <select value={formData.role} onChange={handleInputChange} id="role" name="role"  required> 
           <option value=''>Your Role</option>
-          <option value='user'>user</option>
-          <option value='admin'>admin</option>
-          <option value='restaurant'>restaurant</option>
+          <option value='user'>Customer</option>
+          <option value='admin'>Admin</option>
+          <option value='restaurant'>Restaurant</option>
+          <option value='delivery'>Delivery</option>
           </select>
           
           <button type="submit" className="btn">Register</button>
       </form>
     </div>
   </div>
-
-
   )  
-
-    
-        
-    
-
-    
 }
 export default Register;

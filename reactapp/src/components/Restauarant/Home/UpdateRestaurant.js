@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
+import { BaseSyntheticEvent } from "react";
 
 const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh }) => {
   let navigate = useNavigate();
@@ -40,7 +41,7 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
     };
 
     try {
-      await axios.post('http://localhost:8080/restaurant/create', formData, config);
+      await axios.post(`${baseUrl}/restaurant/create`, formData, config);
       handleCancel();
       setRefresh(!refresh);
     } catch (error) {

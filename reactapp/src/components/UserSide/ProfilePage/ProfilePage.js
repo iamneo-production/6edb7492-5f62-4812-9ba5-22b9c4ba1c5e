@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../NavBar/Header';
 import axios from 'axios';
-
+import { baseUrl } from '../../API/Api';
 const ProfilePage = () => {
   const [name, setName] = useState(localStorage.name);
   const [phoneNumber, setPhoneNumber] = useState(localStorage.phone);
@@ -29,7 +29,7 @@ const ProfilePage = () => {
             password
         }
         
-      axios.put('http://localhost:8080/api/auth/user', payload)
+      axios.put(`${baseUrl}/api/auth/user`, payload)
         .then((response) => {
           console.log(response.data);
           localStorage.setItem('name', response.data.name);
