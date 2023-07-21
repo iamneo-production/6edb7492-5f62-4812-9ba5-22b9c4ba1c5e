@@ -8,15 +8,18 @@
     width: 500px;
     align-items: center;
     margin: 10px;
-    margin-left: 100px;
+    margin-left: 150px;
     padding: 10px;
     border: 3px solid #e11919;
-    background-color: #f3f3f3;
+    background-color: #0e0e0e;
     cursor: pointer;
     
   }
+  .search-restaurantdetails{
+    color: #ee0b0b;
+  }
   .restaurant-card:hover {
-    background-color: #bbefd5a2;
+    background-color: #f6e989a2;
   }
 
   .restaurant-image {
@@ -25,37 +28,89 @@
       object-fit: cover;
   }
   /* Details for selected restaurant */
-  .items-container {
+ 
+  .previous {
+    top: 110px;
+    left: 10px;
+    background-color: #f2f0f0;
+    color: #040404;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 50%;
+    padding: 10px 16px;
+    text-decoration: none;
+    cursor: pointer;
   }
+  
+  .round {
+    border: 2px solid #333;
+  }
+  
+  .previous:hover {
+    background-color: #f00f0f;
+  }
+  
+  .previous.round {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+  
   
   .item-card {
     flex: 0 0 300px;
-    margin: 10px;
+    margin-top: 20px;
+    margin-left: 300px;
     padding: 10px;
-    border: 1px solid #bb1414;
-    background-color: #dce2d6;
-   
+    border: 3px solid #bb1414;
+    background-color: rgb(18, 18, 17);
+    color: rgb(245, 242, 242);
     align-items: center;
+    height: 400px;
+    width: 300px;
   }
+  
+  .item-card:hover {
+    background-color: #f6e989a2;
+  }
+  
   .item-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .item-text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: medium;
+  }
+  
+  
+  .addtocartbutton{
+ 
+    background-color: rgb(251, 247, 247);
+  }
+  .addtocartbutton:hover{
+    background-color: #121111;
   }
   button {
     padding: 8px 12px;
-    background-color: #abf708;
-    color: #310606;
+    background-color: #f8f6f6;
+    color: #ef0c0c;
     border-color: rgb(9, 171, 33);
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #1bbe44e9;
+    background-color: #f2f5f3e9;
   }
 
   *{
@@ -101,7 +156,7 @@ article{
     padding-bottom: 5px;*/
 }
 .cart_box:hover{
-    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 10px 10px rgba(249, 84, 84, 0.1);
     cursor: pointer;
 }
 .cart_box div:nth-child(2) button{

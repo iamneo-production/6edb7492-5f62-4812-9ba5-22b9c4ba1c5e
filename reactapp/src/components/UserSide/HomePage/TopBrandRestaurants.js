@@ -1,8 +1,9 @@
-import { useEffect } from "react";
-import React, { useState } from "react";
+
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./TopBrandRestaurants.css"; // Import the CSS file for styling
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../API/Api";
 
 const TopBrandRestaurants = () => {
 
@@ -12,7 +13,7 @@ const TopBrandRestaurants = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8080/restaurant/all')
+        axios.get(`${baseUrl}/restaurant/all`)
             .then(response => {
                 // console.log(response.data)
                 setRestaurants(response.data)
@@ -71,7 +72,7 @@ const TopBrandRestaurants = () => {
         totalCost: price,
       }
       console.log(order, "order");
-      axios.post('http://localhost:8080/order', order)
+      axios.post(`${baseUrl}/order`, order)
         .then(response => {
           console.log(response.data)
           setCart([])
@@ -166,7 +167,7 @@ const TopBrandRestaurants = () => {
   if (selectedRestaurant) {
     return (
         <div>
-            <button onClick={handleBack} style={{ color:"white" }}>back</button>
+            <a href="#" className="previous round" onClick={handleBack}>&#8249;</a>
         <h2 style={{ color:"white" }}>{selectedRestaurant.restaurantName}</h2>
         <div className="items-container">
           {selectedRestaurant.restaurantmenu.map((item, index) => (
@@ -181,10 +182,10 @@ const TopBrandRestaurants = () => {
                         style={{ height: "200px", width: "200px" }}
                         />
                         )}
-              <p style={{ color:"black" }}>Description: {item.description}</p>
-              <p style={{ color:"black" }}>Price: {item.price}</p>
-              <p style={{ color:"black" }}>Tags: {item.tags}</p>
-              <button onClick={() => handleAddToCart(item)}>
+              <p style={{ color:"white" }}>Description: {item.description}</p>
+              <p style={{ color:"white" }}>Price: {item.price}</p>
+              <p style={{ color:"white" }}>Tags: {item.tags}</p>
+              <button className="addtocartbutton" onClick={() => handleAddToCart(item)}>
                 Add to Cart
               </button>
             </div>
@@ -213,14 +214,13 @@ const TopBrandRestaurants = () => {
                             src={`data:${restaurant.image.headers['Content-Type'][0]};base64,${restaurant.image.body}`}
                         alt={restaurant.restaurantName}
                         className="restaurant-image"
-                        style={{ width: "300px", height: "150px" }}
+                        style={{ width: "300px", height: "130px" }}
                           />
                         )}
             <div>
-              <h3>{restaurant.restaurantName}</h3>
+            <h3 style={{ color: 'white' }}>{restaurant.restaurantName}</h3>
+
               <p>Loaction : {restaurant.restaurantLocation}</p>
-              <p>Email id : {restaurant.restaurantEmail}</p>
-              <p>Contact Number : {restaurant.restaurantContact}</p>
             </div>
           </div>
         ))}
