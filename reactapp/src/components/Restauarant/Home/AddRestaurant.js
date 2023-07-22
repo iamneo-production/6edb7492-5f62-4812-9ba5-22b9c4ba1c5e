@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
-
+import { baseUrl } from "../../API/Api";
 const AddRestaurant = () => {
     let navigate=useNavigate()
   const [restaurant, setRestaurant] = useState({
@@ -39,7 +39,7 @@ const AddRestaurant = () => {
     };
 
     try {
-    await axios.post("http://localhost:8080/restaurant/create", formData, config);
+    await axios.post(`${baseUrl}/restaurant/create`, formData, config);
     navigate(-1);
     } catch (error) {
       console.log(error);

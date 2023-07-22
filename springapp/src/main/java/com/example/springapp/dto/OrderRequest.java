@@ -20,5 +20,6 @@ public class OrderRequest {
     private List<MenuItem> items;
     private double totalCost;
     private String deliveryAddress;
+    private String status;
     
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
+import logo from './logo.jpeg';
 import HeroSlider from '../FoodlePortal/About/HeroSlider';
 // import {Link} from 'react-scroll'
 
@@ -14,10 +15,7 @@ const Navbar = () => {
   return (
 <>
   <header className="header">
-    <a href='#' className="logo">
-    <img src={require('../assets/Foodle.png')} alt="Foodle" />
-
-    </a>
+  <img src={logo} alt="Logo" style={logoStyle} />
     <nav className="navbar">
 
 
@@ -64,4 +62,13 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+const logoStyle = {
+  width: '100px',
+  height: '100px',
+  marginRight: '10px',
+  border: '5px solid red',
+  marginTop:'15px',
+  marginBottom:'15px',
+};
+
+export default Navbar;

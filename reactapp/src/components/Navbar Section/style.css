@@ -38,32 +38,40 @@ section{
 }
 .header{
     border-bottom: 0.2rem solid #ffc107;
+    background-color: #060606;
+    height: 120px;
+   
 }
 
+
 .header ul{
-    background: #010103;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 7%;
-    
+    padding-left: 450px;
     position: absolute;
     top: 0;
-    /* left: 0; */
+    left: 0;
     right: 0;
     z-index: 1000;
-    height: 90px;
+    height: 110px;
     
 }
-.header li{
-    margin: 10px;
-    font-size: 26px;
+.header .navbar li a{
+    margin: 2px;
+    font-size: 22px;
     font-weight: 300;
-    padding: 5px;
+    padding-right: 5px;
     list-style: none;
     text-decoration: none;
     font-family: 'Crimson Text', serif;
+    align-items:flex-start;
+    margin-right: 50px;
+
 }
+
 
 .header .logo img{
     max-width: 500px;
@@ -81,19 +89,20 @@ section{
 
 .header .navbar a{
     margin: 0 1rem;
-    font-size: 25;
+    font-size: 1.6rem;
     color: #fff;
     
 }
 .header .navbar .li .link{
     color: white;
+    font-size: 45px;
 }
 
 .header .navbar a:hover{
     color: #ffc107;
     border-bottom: 0.1rem solid #fff;
     padding-bottom: 0.5rem;
-    font-size: 24px;
+    font-size: 28px;
 }
 .header .search input{
     width: 100px;
@@ -103,7 +112,3 @@ section{
     padding-bottom: 0.5rem;
     font-size: px;
 }
-
-
-
-  
