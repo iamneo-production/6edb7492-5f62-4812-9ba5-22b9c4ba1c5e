@@ -33,6 +33,7 @@ public class Order {
     private double totalCost;
     private String deliveryAddress;
     private Date deliveryTime;
+    private String status;
 
     // pass tc
     private Long restaurantId;

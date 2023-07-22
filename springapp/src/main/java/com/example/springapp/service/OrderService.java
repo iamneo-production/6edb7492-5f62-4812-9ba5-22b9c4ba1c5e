@@ -43,7 +43,15 @@ public class OrderService {
 
         order.setTotalCost(orderRequest.getTotalCost());
         order.setItems(orderRequest.getItems());
+        order.setStatus(orderRequest.getStatus());
 
+        return orderRepo.save(order);
+    }
+
+    public Order updateOrderStatus(Long id, String status) {
+        Order order = orderRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + id));
+        order.setStatus(status);
         return orderRepo.save(order);
     }
     
