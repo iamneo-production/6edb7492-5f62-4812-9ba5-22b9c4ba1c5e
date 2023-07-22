@@ -2,6 +2,7 @@
   text-align: center;
   padding-top: 50px;
   color: white;
+  
 }
 
 .admin-body {
@@ -62,7 +63,7 @@
   font-size: medium;
 }
 .delete-button {
-  background-color: #ff0000;
+  background-color: orange;
   border-radius: 10px;
   color: #fff;
   padding: 5px 10px;
@@ -74,13 +75,35 @@
   background-color: #cc0000;
 }
 .deliver-deletebutton{
-  background-color: #ff0000;
+  background-color:orange;
   border-radius: 10px;
   color: #fff;
   padding: 5px 10px;
   border: none;
   cursor: pointer;
 }
-.deliver-delete-button:hover {
+.deliver-deletebutton:hover {
   background-color: #cc0000;
+}
+
+.dashboard-menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dashboard-menu button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color:orange;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.dashboard-menu button:hover {
+  background-color: red;
 }
