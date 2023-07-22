@@ -2,7 +2,8 @@ import React,{useState} from "react";
 import "./Login.css";
 import {json, useNavigate} from 'react-router-dom';
 import axios from "axios";
-import { baseUrl } from "../../API/Api";
+
+
 
  export const Login = () => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ import { baseUrl } from "../../API/Api";
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(formData);
-        axios.post(`${baseUrl}/api/auth/login`, formData)
+        axios.post("http://localhost:8090/api/auth/login", formData)
             .then(res => { 
                 console.log(res.data);
                 localStorage.setItem("role", res.data.role);
@@ -39,6 +40,9 @@ import { baseUrl } from "../../API/Api";
                 } else if (res.data.role === "admin" || localStorage.getItem("role") === "admin"){
                     navigate("/admin");
                 }
+                else if (res.data.role === "delivery" || localStorage.getItem("role") === "delivery"){
+                    navigate("/deliveryhome");
+                } 
             }).catch(err => console.log(err))
     };
    
