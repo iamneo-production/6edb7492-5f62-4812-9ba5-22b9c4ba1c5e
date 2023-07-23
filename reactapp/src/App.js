@@ -23,7 +23,7 @@ import Review from './components/UserSide/Review/Review';
 import LandingNav from './components/FoodlePortal/LandingNavbar/LandingNav';
 import PaymentForm from './components/UserSide/Payment/PaymentForm';
 import OrderPlaced from './components/UserSide/DeliveryPage/OrderPlaced';
-import RestaurantReviews from './components/Restaurant/Home/RestaurantReviews';
+import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
 
    const App = () => {
   return (

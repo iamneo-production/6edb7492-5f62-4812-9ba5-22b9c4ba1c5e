@@ -32,7 +32,7 @@ const logoStyle = {
   width: '75px',
   height: '75px',
   marginRight: '10px',
-  border: '5px solid red',
+ 
 };
 
 const profilePicStyle = {
