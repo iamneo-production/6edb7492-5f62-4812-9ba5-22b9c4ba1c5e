@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import "./Login.css";
 import {json, useNavigate} from 'react-router-dom';
 import axios from "axios";
+import { baseUrl } from "../../API/Api";
 
 
 
@@ -24,7 +25,7 @@ import axios from "axios";
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(formData);
-        axios.post("http://localhost:8090/api/auth/login", formData)
+        axios.post(`${baseUrl}/api/auth/login`, formData)
             .then(res => { 
                 console.log(res.data);
                 localStorage.setItem("role", res.data.role);
