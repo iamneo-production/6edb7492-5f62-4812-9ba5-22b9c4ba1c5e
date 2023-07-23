@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from '../NavBar/Header';
 import axios from 'axios';
 import { baseUrl } from '../../API/Api';
+
 const ProfilePage = () => {
   const [name, setName] = useState(localStorage.name);
   const [phoneNumber, setPhoneNumber] = useState(localStorage.phone);
@@ -67,8 +68,9 @@ const ProfilePage = () => {
   };
 
     return (
-      <>
-          <Header></Header>
+      <div>
+      <Header />
+         
             <div className="profile-page">
       <h2>Profile Page</h2>
       <label htmlFor="name">Name:</label>
@@ -145,7 +147,7 @@ const ProfilePage = () => {
 
       <ToastContainer />
             </div>
-        </>
+        </div>
   );
 };
 

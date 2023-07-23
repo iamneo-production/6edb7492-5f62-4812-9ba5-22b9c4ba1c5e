@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.jpeg';
-import './Header.css';
+import './Restaurantheader.css';
 
-const Header = () => {
+const Restaurantheader = () => {
   const profilePicUrl = 'https://img.freepik.com/free-icon/user_318-875902.jpg';
   const [showOptions, setShowOptions] = useState(false);
 
@@ -25,7 +25,7 @@ const Header = () => {
           <div className="options-container">
             <div className="profile-options">
               <Link to="/profile">Profile</Link>
-              <Link to="/vieworder">Orders</Link>
+              
               <Link onClick={handleLogout} >Logout</Link>
             </div>
           </div>
@@ -39,7 +39,6 @@ const logoStyle = {
   width: '75px',
   height: '75px',
   marginRight: '10px',
-  borderRadius: '10px',
   
 };
 
@@ -49,4 +48,4 @@ const profilePicStyle = {
   borderRadius: '50%',
 };
 
-export default Header;
+export default Restaurantheader;
