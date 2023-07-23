@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,800;1,900&display=swap');
+
+
+
+
+
+
+
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Crimson+Text:ital,wght@0,600;1,700&family=Dancing+Script:wght@400;500&display=swap');
 
@@ -15,51 +31,30 @@
     
 }
 
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-padding-top: 9rem;
-    scroll-behavior: smooth;
-}
-html::-webkit-scrollbar{
-    width: 0.8rem;
-}
-
-html::-webkit-scrollbar-track{
-    background: transparent;
-    
-}
-body{
-    background: #060606;
-    overflow-x: hidden;
-}
-section{
-    padding: 2rem 7%;
-}
-.header{
-    border-bottom: 0.2rem solid #ffc107;
-    background-color: #060606;
-    height: 120px;
-   
-}
 
 
-.header ul{
+
+
+
+.unorder{
     
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 7%;
-    padding-left: 450px;
+    margin-top: -10px;
+    margin-right: -200px;
+    padding-left: 650px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
     height: 110px;
+    list-style: none;
     
 }
-.header .navbar li a{
+.a1{ 
     margin: 2px;
     font-size: 22px;
     font-weight: 300;
@@ -69,42 +64,31 @@ section{
     font-family: 'Crimson Text', serif;
     align-items:flex-start;
     margin-right: 50px;
-
-}
-
-
-.header .logo img{
-    max-width: 500px;
-    padding-right: 50px;
-    align-self:flex-end;
-    padding-left: 100px;
-    max-height: 90px;
-    align-self: flex-start;
-    height: 300px;
-    width: 280px;
-  
 }
 
 
 
-.header .navbar a{
+
+
+
+.Header .Navbar a{
     margin: 0 1rem;
     font-size: 1.6rem;
-    color: #fff;
+    color:rgba(114, 76, 6, 0.848);
     
 }
-.header .navbar .li .link{
+.Header .Navbar .li .link{
     color: white;
     font-size: 45px;
 }
 
-.header .navbar a:hover{
-    color: #ffc107;
+.Header .Navbar a:hover{
+    color:#2D2D82;
     border-bottom: 0.1rem solid #fff;
     padding-bottom: 0.5rem;
     font-size: 28px;
 }
-.header .search input{
+.Header .search input{
     width: 100px;
     padding-left: 10px;
     color: #ffc107;
