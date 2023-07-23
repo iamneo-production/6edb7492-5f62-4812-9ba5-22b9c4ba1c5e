@@ -1,4 +1,3 @@
-import Navbar from './components/Navbar Section/Navbar';
 import Body from './components/FoodlePortal/Home/Body';
 import Login from './components/Auth/Login/Login';
 import 'slick-carousel/slick/slick.css';
@@ -14,12 +13,17 @@ import DishHome from './components/Restauarant/Menu/DishHome';
 import AddDish from './components/Restauarant/Menu/AddDish';
 import UpdateDish from './components/Restauarant/Menu/UpdateDish';
 import RestaurantSearch from './components/UserSide/HomePage/RestaurantSearch';
-import ProfilePage from './components/UserSide/ProfilePage/ProfilePage';
+import ProfilePage from './components/UserSide/ProfilePage/ProfilePage'
 import AdminDashboard from './components/Admin/AdminDashboard';
 import DeliveryHome from './components/Delivery/Home/DeliveryHome';
 import DeliveryNav from './components/Delivery/Delivery Navbar/DeliveryNav';
 import OrderForm from './components/UserSide/DeliveryPage/OrderForm';
 import Orders from './components/UserSide/Orders/Orders';
+import Review from './components/UserSide/Review/Review';
+import LandingNav from './components/FoodlePortal/LandingNavbar/LandingNav';
+import PaymentForm from './components/UserSide/Payment/PaymentForm';
+import OrderPlaced from './components/UserSide/DeliveryPage/OrderPlaced';
+import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
 
    const App = () => {
   return (
@@ -27,11 +31,11 @@ import Orders from './components/UserSide/Orders/Orders';
     <Router> 
         <Routes>
                   {/* landing page  */}
-          <Route exact path="/" element={<><Navbar/><Body/><div style={{paddingTop:"100px"}}></div><HeroSlider/><Footer/></>} />
-          <Route exact path="/about" element={<><Navbar/><HeroSlider/></>} />
-          <Route exact path="/contactus" element={<><Navbar/><div style={{paddingTop:"150px"}}></div><Footer/></>} />
-          <Route exact path="/login" element={<><Navbar/><Login /><HeroSlider/><Footer/></>} />
-          <Route exact path="/register" element={<><Navbar/><Register /><HeroSlider/><Footer/></>} />
+          <Route exact path="/" element={<><LandingNav/><Body/><div style={{paddingTop:"100px"}}></div><HeroSlider/><Footer/></>} />
+          <Route exact path="/about" element={<><LandingNav/><HeroSlider/></>} />
+          <Route exact path="/contactus" element={<><LandingNav/><div style={{paddingTop:"150px"}}></div><Footer/></>} />
+          <Route exact path="/login" element={<><LandingNav/><Login /><HeroSlider/><Footer/></>} />
+          <Route exact path="/register" element={<><LandingNav/><Register /><HeroSlider/><Footer/></>} />
 
                   {/* resturant side  */}
           <Route exact path="/restauranthome" element={<><RestaurantHome /></>} />
@@ -41,17 +45,21 @@ import Orders from './components/UserSide/Orders/Orders';
           <Route exact path="/dish" element={<><DishHome /></>} />
           <Route path="/dish/:id"  element={<><DishHome /></>} />
           <Route exact path="/res/:rid/updatedish/:id" element={<><UpdateDish /></>} />
+          <Route exact path="/restaurantreviews" element={<><RestaurantReviews /></>} />
                   
           {/* user side  */}
           <Route exact path="/user" element={<RestaurantSearch />} />
           <Route exact path="/profile" element={<ProfilePage />} />
           <Route exact path="/checkout"  element={ <OrderForm/> } />
           <Route exact path="/vieworder" element={<Orders/>} />
+          <Route exact path="/review" element={<Review/>} />
+          <Route exact path="/payment" element={<PaymentForm />} />
+          <Route exact path="/orderplaced" element={<OrderPlaced />} />
 
 
           {/* admin side */}
             <Route exact path="/admin" element={<AdminDashboard/>} />
-
+            <Route exact path="/deliverynav" element={<DeliveryNav/>} />
 
           {/* {Delivery Side} */}
           <Route exact path="/deliveryhome" element={<DeliveryHome/>} />

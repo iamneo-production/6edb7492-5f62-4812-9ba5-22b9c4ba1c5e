@@ -3,6 +3,7 @@ import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../API/Api";
+
 export const Register = (props) => {
   // const navigate=useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(true);

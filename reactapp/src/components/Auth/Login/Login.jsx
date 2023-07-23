@@ -4,6 +4,8 @@ import {json, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import { baseUrl } from "../../API/Api";
 
+
+
  export const Login = () => {
     const navigate = useNavigate();
     const initialState = {
@@ -39,6 +41,9 @@ import { baseUrl } from "../../API/Api";
                 } else if (res.data.role === "admin" || localStorage.getItem("role") === "admin"){
                     navigate("/admin");
                 }
+                else if (res.data.role === "delivery" || localStorage.getItem("role") === "delivery"){
+                    navigate("/deliveryhome");
+                } 
             }).catch(err => console.log(err))
     };
    

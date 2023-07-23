@@ -1,10 +1,9 @@
-/* Header */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: #191717;
+  background-color: black;
   border-bottom: 0.2rem solid #ffc107;
 }
 
