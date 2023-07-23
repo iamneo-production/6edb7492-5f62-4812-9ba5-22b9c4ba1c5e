@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
 import { BaseSyntheticEvent } from "react";
+import { baseUrl } from "../../API/Api";
 
 const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh }) => {
   let navigate = useNavigate();

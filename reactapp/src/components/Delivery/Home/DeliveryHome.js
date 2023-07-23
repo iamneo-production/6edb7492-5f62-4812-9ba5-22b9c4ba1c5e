@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./DeliveryHome.css";
 import axios from "axios";
 import DeliveryNav from '../Delivery Navbar/DeliveryNav';
+import { baseUrl } from "../../API/Api";
 
 const DeliveryHome = () => {
   
@@ -9,14 +10,14 @@ const DeliveryHome = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:8090/order").then((res) => {
+    axios.get(`${baseUrl}/order`).then((res) => {
       console.log(res.data);
       setorders(res.data)
     }).catch(err => console.log(err))
   }, [refresh])
   
   const handleAccept = (id) => {
-    axios.put(`http://localhost:8090/order/status?id=${id}&status=Accepted`)
+    axios.put(`${baseUrl}/order/status?id=${id}&status=Accepted`)
       .then((res) => {
         console.log(res.data);
         setRefresh(!refresh)
@@ -24,7 +25,7 @@ const DeliveryHome = () => {
   }
 
   const handleDelivered = (id) => {
-    axios.put(`http://localhost:8090/order/status?id=${id}&status=Delivered`)
+    axios.put(`${baseUrl}/order/status?id=${id}&status=Delivered`)
       .then((res) => {
         console.log(res.data);
         setRefresh(!refresh)

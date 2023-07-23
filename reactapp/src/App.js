@@ -6,12 +6,12 @@ import HeroSlider from './components/FoodlePortal/About/HeroSlider';
 import { BrowserRouter as Router, Routes, Route,Link } from "react-router-dom";
 import Register from './components/Auth/Register/Register';
 import Footer from './components/FoodlePortal/Footer/Footer';
-import RestaurantHome from './components/Restaurant/Home/Home';
-import AddRestaurant from './components/Restaurant/Home/AddRestaurant';
-import UpdateRestaurant from './components/Restaurant/Home/UpdateRestaurant';
-import DishHome from './components/Restaurant/Menu/DishHome';
-import AddDish from './components/Restaurant/Menu/AddDish';
-import UpdateDish from './components/Restaurant/Menu/UpdateDish';
+import RestaurantHome from './components/Restauarant/Home/Home';
+import AddRestaurant from './components/Restauarant/Home/AddRestaurant';
+import UpdateRestaurant from './components/Restauarant/Home/UpdateRestaurant';
+import DishHome from './components/Restauarant/Menu/DishHome';
+import AddDish from './components/Restauarant/Menu/AddDish';
+import UpdateDish from './components/Restauarant/Menu/UpdateDish';
 import RestaurantSearch from './components/UserSide/HomePage/RestaurantSearch';
 import ProfilePage from './components/UserSide/ProfilePage/ProfilePage'
 import AdminDashboard from './components/Admin/AdminDashboard';

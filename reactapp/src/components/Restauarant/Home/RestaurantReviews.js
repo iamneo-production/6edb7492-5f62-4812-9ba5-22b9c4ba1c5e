@@ -57,7 +57,7 @@ const RestaurantReviews = () => {
     }
 
     return reviews.map((review) => (
-      <div key={review.id} className="review">
+      <div  className="review">
         
         <p  className='id'>{review.id} . {review.name}</p>
         <h3>Rating: {review.rating}</h3>
@@ -76,11 +76,11 @@ const RestaurantReviews = () => {
                 
                 
               }}
-              value={responseMap[review.id] || ''}
+              
               onChange={(e) => handleResponseChange(e, review.id)}
               ></textarea>
               </>
-              <button onClick={() => handleSubmitResponse(review.id)}>Submit Response</button>
+              <button>Submit Response</button>
           </div>
         )}
       </div>
