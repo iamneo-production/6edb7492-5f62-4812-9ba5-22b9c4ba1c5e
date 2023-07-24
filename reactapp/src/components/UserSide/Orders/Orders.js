@@ -11,7 +11,7 @@ const Orders = () => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:8090/order").then((res) => {
+    axios.get(`${baseUrl}/order`).then((res) => {
       console.log(res.data);
       console.log(localStorage.getItem("id"));
       setOrders(res.data.filter((order) => order.customerId == localStorage.getItem("id")));
