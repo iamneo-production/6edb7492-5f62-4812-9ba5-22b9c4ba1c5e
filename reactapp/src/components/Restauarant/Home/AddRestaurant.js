@@ -4,6 +4,7 @@ import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
 import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 const AddRestaurant = () => {
     let navigate=useNavigate()
   const [restaurant, setRestaurant] = useState({
@@ -53,6 +54,7 @@ const AddRestaurant = () => {
 
   return (
     <div>
+      <Restaurantheader/>
       <div className={styles.box}>
         <h2>Add Restaurant</h2>
           <form onSubmit={(e)=>onSubmit(e)}>

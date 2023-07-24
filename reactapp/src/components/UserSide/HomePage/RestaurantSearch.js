@@ -4,9 +4,11 @@ import TopBrandRestaurants from "./TopBrandRestaurants";
 import "./Searchpage.css"; // Import the CSS file
 import Header from "../../UserSide/NavBar/Header";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import { baseUrl } from "../../API/Api";
-
 const RestaurantSearch = () => {
+  
+  const navigate = useNavigate();
   const [locationFilter, setLocationFilter] = useState("");
   const [restaurantFilter, setRestaurantFilter] = useState("");
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
@@ -81,10 +83,12 @@ const handleBack = () => {
           console.log(response.data)
           setCart([])
           setViewCheckout(false)
+          navigate(`/checkout/${price}`)
         })
         .catch(error => { 
           console.log(error)
         })
+      
       
     }
 
