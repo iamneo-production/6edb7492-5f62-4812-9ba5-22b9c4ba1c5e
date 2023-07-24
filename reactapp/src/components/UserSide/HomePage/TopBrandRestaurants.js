@@ -1,11 +1,13 @@
-
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./TopBrandRestaurants.css"; // Import the CSS file for styling
 import { Link } from "react-router-dom";
 import { baseUrl } from "../../API/Api";
+import { useNavigate} from "react-router-dom";
 
 const TopBrandRestaurants = () => {
+
+  const navigate = useNavigate();
 
   const [restaurants, setRestaurants] = useState([]);
   const [viewCheckout, setViewCheckout] = useState(false);
@@ -70,6 +72,7 @@ const TopBrandRestaurants = () => {
         deliveryAddress: localStorage.address,
         items: items,
         totalCost: price,
+        status:"Pending"
       }
       console.log(order, "order");
       axios.post(`${baseUrl}/order`, order)
@@ -77,6 +80,7 @@ const TopBrandRestaurants = () => {
           console.log(response.data)
           setCart([])
           setViewCheckout(false)
+          navigate(`/checkout/${price}`)
         })
         .catch(error => { 
           console.log(error)
@@ -117,9 +121,8 @@ const TopBrandRestaurants = () => {
     })
     return (
       <div >
-          
-            <button onClick={handleBackCart} >back </button>
-            <h1 style={{color:"white" }} >Checkout</h1>
+          <a href="#" className="previous round" onClick={handleBackCart}>&#8249;</a>
+        <h1 style={{color:"white",marginTop:"20px"  }} >Checkout</h1>
         <article>
             {cart.map((item) => (
                 <div className="cart_box" key={item.id}>
@@ -131,7 +134,7 @@ const TopBrandRestaurants = () => {
                         className="item-image"
                         />
                         )}
-                        <p>{item.name}</p>
+                        <p style={{marginTop:"30px"}}>{item.name}</p>
                     </div>
 
                     <div>
@@ -146,15 +149,16 @@ const TopBrandRestaurants = () => {
                 </div>
             ))}
             <div className="total">
-                <span >Total Price</span>
-                <span>Rs - {price}</span>
+                <span style={{color:"black"}}>Total Price</span>
+                <span style={{color:"black"}}>Rs :- {price}</span>
             </div>
             <br />
             {price > 0 && (
                 <div className="text-center mt-3">
                     
-              <button onClick={handleOrder} >
-                <Link to="/checkout" style={{ color:"white" }}>Proceed to Delivery</Link>
+              <button onClick={handleOrder} className="home-proceed-to-delivery">
+                <Link to="/checkout" style={{ color:"black", textDecoration: "none" }}>
+                  Proceed to Delivery</Link>
               </button>
 
                 </div>
@@ -168,12 +172,12 @@ const TopBrandRestaurants = () => {
     return (
         <div>
             <a href="#" className="previous round" onClick={handleBack}>&#8249;</a>
-        <h2 style={{ color:"white" }}>{selectedRestaurant.restaurantName}</h2>
+        <h2 style={{ color:"white",marginTop: "20px"   }}>{selectedRestaurant.restaurantName}</h2>
         <div className="items-container">
           {selectedRestaurant.restaurantmenu.map((item, index) => (
             <>
             <div key={index} className="item-card" >
-              <h4>{item.name}</h4>
+              <h4 style={{ color: "white" }}>{item.name}</h4>
                   {item.image && item.image.body && (
                           <img
                             src={`data:${item.image.headers['Content-Type'][0]};base64,${item.image.body}`}
@@ -182,26 +186,27 @@ const TopBrandRestaurants = () => {
                         style={{ height: "200px", width: "200px" }}
                         />
                         )}
-              <p style={{ color:"white" }}>Description: {item.description}</p>
+              <p style={{ color:"white" }}>Cusine: {item.description}</p>
               <p style={{ color:"white" }}>Price: {item.price}</p>
               <p style={{ color:"white" }}>Tags: {item.tags}</p>
               <button className="addtocartbutton" onClick={() => handleAddToCart(item)}>
                 Add to Cart
               </button>
             </div>
-              <div onClick={handleCheckOut} class="for-container">
-                <div  class="floating-button">Cart</div>
-         </div>
+             
             </>
           ))}
         </div>
+        <div onClick={handleCheckOut} >
+                <div  class="floating-button">Cart</div>
+         </div>
       </div>
     );
   }
 
   return (
     <div>
-      <h2>Top-Brand Restaurants</h2>
+      
       <div className="restaurant-list-horizontal">
         {restaurants.map((restaurant, index) => (
           <div
@@ -214,14 +219,33 @@ const TopBrandRestaurants = () => {
                             src={`data:${restaurant.image.headers['Content-Type'][0]};base64,${restaurant.image.body}`}
                         alt={restaurant.restaurantName}
                         className="restaurant-image"
-                        style={{ width: "300px", height: "130px" }}
+                        style={{ width: "300px", height: "150px" }}
                           />
                         )}
-            <div>
-            <h3 style={{ color: 'white' }}>{restaurant.restaurantName}</h3>
+           <div>
+  <h3 style={{ color: 'white', fontWeight: 'bold', fontSize: '15px' }}>
+    {restaurant.restaurantName}
+  </h3>
+  <p style={{ color: 'white', fontSize: '15px' }}>Location: {restaurant.restaurantLocation}</p>
+  <Link to="/review" className="reviewoption">
+    Review
+  </Link>
+  <button
+    style={{
+      backgroundColor: 'transparent',
+      border: 'none',
+      fontSize: '20px',
+      cursor: 'pointer',
+      color: 'yellow',
+      outline: 'none'
+    }}
+   
+  >
+    3&#9733; {/* Unicode character for a star (☆ or ★) */}
+    {/* Alternatively, you can use an icon library (e.g., Font Awesome) */}
+  </button>
+</div>
 
-              <p>Loaction : {restaurant.restaurantLocation}</p>
-            </div>
           </div>
         ))}
       </div>

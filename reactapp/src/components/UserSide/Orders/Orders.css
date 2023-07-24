@@ -1,69 +1,69 @@
 .title{
-    text-align: center;
-    padding-top: 50px;
+  text-align: center;
+  padding-top: 50px;
+  color: white;
+}
+.adminbody{
+  height: 100%;
+  width: 100%;
+  background-color: #060606;
+  
+}
+.table-container {
+    width: 100%; /* Adjust the width as per your requirements */
+    margin: 0 auto;
+    margin-top: 50px; /* Add a top margin to center the table vertically */
+  }
+  
+  .brand {
+    color: white;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .color-border-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #eb0f0f;
+  }
+  
+  .color-border-table th,
+  .color-border-table td {
+    padding: 8px;
+    text-align: left;
+    color: red;
+    
+  }
+  
+  .color-border-table th {
+    background-color: #f2f2f2;
+  }
+  .color-border-table td {
     color: white;
   }
-  .adminbody{
-    height: 100%;
-    width: 100%;
-    background-color: #060606;
-    
-  }
-  .table-container {
-      width: 100%; /* Adjust the width as per your requirements */
-      margin: 0 auto;
-      margin-top: 50px; /* Add a top margin to center the table vertically */
-    }
-    
-    .brand {
-      color: white;
-      display: block;
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    
-    .color-border-table {
-      width: 100%;
-      border-collapse: collapse;
-      border: 1px solid #ccc;
-    }
-    
-    .color-border-table th,
-    .color-border-table td {
-      padding: 8px;
-      text-align: left;
-      
-    }
-    
-    .color-border-table th {
-      background-color: #f2f2f2;
-    }
-    .color-border-table td {
-      color: white;
-    }
-    
-    .color-border-table tbody tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    
-    .reorderbutton {
-      margin-top: 10px;
-      margin-left: 10px;
-      background-color:rgb(47, 186, 47);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 5px 10px; 
-      min-height: 20px; 
-      line-height: 20px; 
-      min-width: 80px;
-      text-decoration: none;
-    }
-    
-    
-    .reorderbutton:hover {
-      background-color:rgb(29, 129, 29);
-      transition: 0.5s;
-    }
   
+  .color-border-table tbody tr:nth-child(even) {
+    background-color: #000000;
+  }
+  
+  .reorderbutton {
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color:rgb(47, 186, 47);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px; 
+    min-height: 20px; 
+    line-height: 20px; 
+    min-width: 80px;
+    text-decoration: none;
+  }
+  
+  
+  .reorderbutton:hover {
+    background-color:rgb(29, 129, 29);
+    transition: 0.5s;
+  }

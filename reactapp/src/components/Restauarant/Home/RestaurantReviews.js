@@ -1,115 +1,135 @@
-import React, { useState, useEffect } from 'react';
-import './RestaurantReviews.css';
+// import React, { useState } from 'react';
+// import './RestaurantReviews.css';
+// import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
+// const RestaurantReview = () => {
+//   const [response, setResponse] = useState('');
+
+//   const handleInputChange = (event) => {
+//     setResponse(event.target.value);
+//   };
+
+//   const handleSubmit = () => {
+//     // Add your submit logic here
+//     console.log('Response submitted:', response);
+//     // Reset the response state after submission (if required)
+//     setResponse('');
+//   };
+
+//   return (
+//     <div><Restaurantheader />
+//     <div className="restaurant1-review1">
+      
+//       <table>
+//         <thead>
+//           <tr>
+//             <th>Customer Name</th>
+//             <th>Comment</th>
+//             <th>Response</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <tr>
+//             <td>Harish</td>
+//             <td>Good Restaurant</td>
+//             <td>Thankyou!!</td>
+//           </tr>
+//           <tr>
+//             <td>Naveen</td>
+//             <td>Awesome dishes</td>
+//             <td>Tysm..!</td>
+//           </tr> <tr>
+//             <td>Harish</td>
+//             <td>Good Restaurant</td>
+//             <td>Thankyou!!</td>
+//           </tr>
+//         </tbody>
+//       </table>
+//       <div className="response-input">
+//         <input
+//           type="text"
+//           className='response'
+//           value={response}
+//           onChange={handleInputChange}
+//           placeholder="Enter your response..."
+//         />
+//       </div>
+//       <button type="submit" className='sbtn' onClick={handleSubmit}>Submit</button>
+//     </div>
+//     </div>
+//   );
+// };
+
+// export default RestaurantReview;
 
 
+import React, { useState } from 'react';
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
+const RestaurantReview = () => {
+  const [response, setResponse] = useState('');
 
-const RestaurantReviews = () => {
-  const [reviews, setReviews] = useState(() => {
-    const storedReviews = localStorage.getItem('reviews');
-    return storedReviews ? JSON.parse(storedReviews) : [
-      {
-        id: 1,
-        rating: 5,
-        review: 'The food was delicious and excellent .',
-        response: '',
-        name:"ramya"
-        
-      },
-    ];
-  });
-  const [responseMap, setResponseMap] = useState(() => {
-    const storedResponseData = localStorage.getItem('responseMap');
-    return storedResponseData ? JSON.parse(storedResponseData) : {};
-  })
-  const handleResponseChange = (e, reviewId,response) => {
-    console.log(e, reviewId);
-    const updatedResponseMap = { ...responseMap };
-    updatedResponseMap[reviewId] = e.target.value;
-    console.log(updatedResponseMap);
-    setResponseMap(updatedResponseMap);
+  const handleInputChange = (event) => {
+    setResponse(event.target.value);
   };
-     
 
- 
-  const handleSubmitResponse = async (reviewId) => {
-    console.log(reviewId);
-    console.log(typeof(responseMap[reviewId]));
-    let foodle ={};
-    const updatedReviews = reviews.map((review) => {
-      if (review.id === reviewId) {
-      foodle = {
-        ...review,
-        response: responseMap[reviewId],
-      };
-        return foodle;
-      }
-      return review;
-    });
-    console.log("hii",foodle);
-   
+  const handleSubmit = () => {
+    // Add your submit logic here
+    console.log('Response submitted:', response);
+    // Reset the response state after submission (if required)
+    setResponse('');
   };
-
-  const renderReviews = () => {
-    if (reviews.length === 0) {
-
-      return <p>No reviews yet.</p>;
-    }
-
-    return reviews.map((review) => (
-      <div key={review.id} className="review">
-        
-        <p  className='id'>{review.id} . {review.name}</p>
-        <h3>Rating: {review.rating}</h3>
-        <p>Review: {review.review}</p>
-        
-        {review.response && <p className="response">Response: {review.response}</p>}
-        {!review.response && (
-          <div>
-            <>
-            <textarea
-              
-              placeholder="Response to your customer..."
-              style={{
-                width:"300px",
-                
-                
-                
-              }}
-              value={responseMap[review.id] || ''}
-              onChange={(e) => handleResponseChange(e, review.id)}
-              ></textarea>
-              </>
-              <button onClick={() => handleSubmitResponse(review.id)}>Submit Response</button>
-          </div>
-        )}
-      </div>
-    ));
-  };
-  useEffect(() => {
-    localStorage.setItem('responseMap', JSON.stringify(responseMap));
-  }, [responseMap]);
- 
-useEffect(() => {
-  localStorage.setItem('reviews', JSON.stringify(reviews));
-}, [reviews]);
 
   return (
-    <>
-
-      <p style={{
-        fontWeight: "bold",
-        fontSize: "40px",
-        textAlign:"center"
-      }}>My Ratings and Reviews</p>
-       
-    
-
-      <div className="reviews-container">{renderReviews()}</div>
-      
-      </>
+    <div>
+      <Restaurantheader />
+      <div className="restaurant1-review1" style={{ maxWidth: '700px', margin: '0 auto', padding: '20px', backgroundColor: '#f9f9f9' ,marginTop:"50px"}}>
+        <table style={{ width: '100%', border: '1px solid black' }}>
+          <thead>
+            <tr>
+              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Customer Name</th>
+              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Comment</th>
+              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Harish</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Good Restaurant</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Thank you!!</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Naveen</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Awesome dishes</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Tysm..!</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Harish</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Good Restaurant</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Thank you!!</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="response-input" style={{ marginTop: '20px',border:'1px solid black' }}>
+          <input
+            type="text"
+            className='response'
+            value={response}
+            onChange={handleInputChange}
+            placeholder="Enter your response..."
+            style={{ padding: '10px', fontSize: '16px', width: '100%'}}
+          />
+        </div>
+        <button
+          type="submit"
+          className='sbtn'
+          onClick={handleSubmit}
+          style={{ padding: '10px 20px', marginTop: '10px', fontSize: '16px' }}
+        >
+          Submit
+        </button>
+      </div>
+    </div>
   );
-  
 };
 
-export default RestaurantReviews;
+export default RestaurantReview;
