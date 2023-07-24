@@ -6,6 +6,7 @@ import OwnerLogin from './components/Add Restrauants/OwnerLogin';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+//import RatingForm from'./components/RatingForm';
 import Home from "./components/pages/Home";
 import AddDish from "./components/menus/AddDish";
 import UpdateDish from "./components/menus/UpdateDish";
