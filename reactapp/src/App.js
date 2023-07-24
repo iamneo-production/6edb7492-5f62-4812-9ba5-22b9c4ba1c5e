@@ -23,7 +23,7 @@ import Review from './components/UserSide/Review/Review';
 import LandingNav from './components/FoodlePortal/LandingNavbar/LandingNav';
 import PaymentForm from './components/UserSide/Payment/PaymentForm';
 import OrderPlaced from './components/UserSide/DeliveryPage/OrderPlaced';
-import RestaurantReviews from './components/Restaurant/Home/RestaurantReviews';
+
 
    const App = () => {
   return (
@@ -45,7 +45,7 @@ import RestaurantReviews from './components/Restaurant/Home/RestaurantReviews';
           <Route exact path="/dish" element={<><DishHome /></>} />
           <Route path="/dish/:id"  element={<><DishHome /></>} />
           <Route exact path="/res/:rid/updatedish/:id" element={<><UpdateDish /></>} />
-          <Route exact path="/restaurantreviews" element={<><RestaurantReviews /></>} />
+         
                   
           {/* user side  */}
           <Route exact path="/user" element={<RestaurantSearch />} />
