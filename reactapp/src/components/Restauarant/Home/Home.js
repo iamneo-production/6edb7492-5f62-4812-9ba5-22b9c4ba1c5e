@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Home.module.css";
 import UpdateRestaurantcomp from "./UpdateRestaurant";
-import Header from '../../UserSide/NavBar/Header';
+import Restaurantheader from '../../UserSide/NavBar/Restaurantheader';
 import { baseUrl } from "../../API/Api";
 
 const Home = (props) => {
@@ -45,7 +45,7 @@ const Home = (props) => {
   if (!update) {
     return (
       <>
-         <Header></Header>
+         <Restaurantheader />
       <div className={styles.contain}>
       <div className={styles.py}>
           <a className={styles.brand}>
@@ -86,6 +86,7 @@ const Home = (props) => {
                         <Link className={styles.updatebutton} onClick={() => handleUpdate(restaurant)} >Update</Link>
                         <button className={styles.deletebutton} onClick={() => deleteRestaurant(restaurant.restaurantId)}>Delete</button>
                         <Link className={styles.updatebutton} to={`/dish/${restaurant.restaurantId}`}  >Customize Menu</Link>
+                        <Link className={styles.updatebutton} to="/restaurantreviews">Reviews</Link>
                       </td>
                     </tr>
                   }

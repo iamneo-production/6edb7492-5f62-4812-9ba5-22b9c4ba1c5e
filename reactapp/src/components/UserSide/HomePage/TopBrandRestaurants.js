@@ -3,8 +3,11 @@ import axios from "axios";
 import "./TopBrandRestaurants.css"; // Import the CSS file for styling
 import { Link } from "react-router-dom";
 import { baseUrl } from "../../API/Api";
+import { useNavigate} from "react-router-dom";
 
 const TopBrandRestaurants = () => {
+
+  const navigate = useNavigate();
 
   const [restaurants, setRestaurants] = useState([]);
   const [viewCheckout, setViewCheckout] = useState(false);
@@ -77,6 +80,7 @@ const TopBrandRestaurants = () => {
           console.log(response.data)
           setCart([])
           setViewCheckout(false)
+          navigate(`/checkout/${price}`)
         })
         .catch(error => { 
           console.log(error)

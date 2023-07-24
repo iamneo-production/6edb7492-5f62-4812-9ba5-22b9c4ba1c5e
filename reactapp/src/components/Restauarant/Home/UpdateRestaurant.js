@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
-import { Form, Button } from 'react-bootstrap';
-import { BaseSyntheticEvent } from "react";
+
 import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
 const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh }) => {
   let navigate = useNavigate();
@@ -60,6 +60,7 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
 
   return (
     <div>
+      <Restaurantheader/>
       <div className={styles.box}>
         <h2>Add Restaurant</h2>
         <form onSubmit={onSubmit}>
