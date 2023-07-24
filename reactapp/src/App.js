@@ -6,12 +6,12 @@ import HeroSlider from './components/FoodlePortal/About/HeroSlider';
 import { BrowserRouter as Router, Routes, Route,Link } from "react-router-dom";
 import Register from './components/Auth/Register/Register';
 import Footer from './components/FoodlePortal/Footer/Footer';
-import RestaurantHome from './components/Restaurant/Home/Home';
-import AddRestaurant from './components/Restaurant/Home/AddRestaurant';
-import UpdateRestaurant from './components/Restaurant/Home/UpdateRestaurant';
-import DishHome from './components/Restaurant/Menu/DishHome';
-import AddDish from './components/Restaurant/Menu/AddDish';
-import UpdateDish from './components/Restaurant/Menu/UpdateDish';
+import RestaurantHome from './components/Restauarant/Home/Home';
+import AddRestaurant from './components/Restauarant/Home/AddRestaurant';
+import UpdateRestaurant from './components/Restauarant/Home/UpdateRestaurant';
+import DishHome from './components/Restauarant/Menu/DishHome';
+import AddDish from './components/Restauarant/Menu/AddDish';
+import UpdateDish from './components/Restauarant/Menu/UpdateDish';
 import RestaurantSearch from './components/UserSide/HomePage/RestaurantSearch';
 import ProfilePage from './components/UserSide/ProfilePage/ProfilePage'
 import AdminDashboard from './components/Admin/AdminDashboard';
@@ -23,7 +23,10 @@ import Review from './components/UserSide/Review/Review';
 import LandingNav from './components/FoodlePortal/LandingNavbar/LandingNav';
 import PaymentForm from './components/UserSide/Payment/PaymentForm';
 import OrderPlaced from './components/UserSide/DeliveryPage/OrderPlaced';
-import RestaurantReviews from './components/Restaurant/Home/RestaurantReviews';
+import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
+import ContactFile from './components/UserSide/Support/ContactForm/ContactFile';
+import Chatbot from './components/UserSide/Support/ContactForm/Bot/Chatbot';
+import Header from './components/UserSide/NavBar/Header';
 
    const App = () => {
   return (
@@ -50,11 +53,12 @@ import RestaurantReviews from './components/Restaurant/Home/RestaurantReviews';
           {/* user side  */}
           <Route exact path="/user" element={<RestaurantSearch />} />
           <Route exact path="/profile" element={<ProfilePage />} />
-          <Route exact path="/checkout"  element={ <OrderForm/> } />
+          <Route exact path="/checkout/:price"  element={ <OrderForm/> } />
           <Route exact path="/vieworder" element={<Orders/>} />
           <Route exact path="/review" element={<Review/>} />
-          <Route exact path="/payment" element={<PaymentForm />} />
+          <Route exact path="/payment/:price" element={<PaymentForm />} />
           <Route exact path="/orderplaced" element={<OrderPlaced />} />
+          <Route exact path="/support" element={<><Header/><ContactFile /><Chatbot/></>} />
 
 
           {/* admin side */}

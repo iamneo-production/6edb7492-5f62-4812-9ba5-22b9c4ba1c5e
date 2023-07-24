@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
-import './PaymentForm.css';
-import { useNavigate } from 'react-router-dom';
+
+import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function PaymentForm() {
-  const [amount, setAmount] = useState('');
+  const { price } = useParams();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (amount === '') {
-      alert('Please enter the amount');
+  useEffect(() => {
+    initiatePayment();
+  }, [price]);
+
+  const initiatePayment = () => {
+    const amount = parseFloat(price);
+
+    if (isNaN(amount)) {
+      alert('Please enter a valid amount');
     } else {
       var options = {
         key: 'rzp_test_Hw7hLPDFrWqFGU',
@@ -35,21 +40,7 @@ function PaymentForm() {
     }
   };
 
-  return (
-    <div className="payment-form-container">
-      <h2 style={{color:'white'}}>Razorpay Payment Integration Using React</h2>
-      <br />
-      <input
-        type="text"
-        placeholder="Enter Amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
-      <br />
-      <br />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
-  );
+  return null; // We don't render anything as the payment will be initiated directly
 }
 
 export default PaymentForm;

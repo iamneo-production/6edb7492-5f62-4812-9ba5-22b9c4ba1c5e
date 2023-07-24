@@ -78,7 +78,7 @@ const AdminDashboard = () => {
       case "users":
         return (
           <div className="table-container">
-            <a className="brand">Foodle Users</a>
+            <a className="brand" style={{color:'white'}}>Foodle Users</a>
             <table className="border-table">
             <thead>
                 <tr>
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
       case "restaurants":
         return (
           <div className="table-container">
-            <a className="brand">Foodle Restaurants</a>
+            <a className="brand" style={{color:'white'}}>Foodle Restaurants</a>
             <table className="border-table">
             <thead>
                 <tr>
@@ -148,7 +148,7 @@ const AdminDashboard = () => {
       case "orders":
         return (
           <div className="table-container">
-            <a className="brand">Foodle Orders</a>
+            <a className="brand" style={{color:'white'}}>Foodle Orders</a>
             <table className="border-table">
             <thead>
                 <tr>
@@ -184,7 +184,7 @@ const AdminDashboard = () => {
       case "deliveryPerson":
         return (
           <div className="table-container">
-            <a className="brand">Foodle Delivery Person</a>
+            <a className="brand" style={{color:'white'}}>Foodle Delivery Person</a>
             <table className="deliver-border-table">
              <thead>
                <tr>

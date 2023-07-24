@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Home.module.css";
 import { useParams } from "react-router-dom";
 import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
 
 const DishHome = () => {
@@ -38,6 +39,8 @@ const DishHome = () => {
   },[refresh])
 
   return (
+    <div>
+      <Restaurantheader/>
 
     <div className={styles.contain}>
       <div className={styles.py}>
@@ -83,6 +86,7 @@ const DishHome = () => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
     
   );

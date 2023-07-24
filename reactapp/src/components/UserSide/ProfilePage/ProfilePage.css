@@ -1,14 +1,12 @@
-/* ProfilePage.css */
-
 .profile-page {
   /* position: relative; */
   width: 400px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f1f1f1;
-  border: 1px solid #ccc;
+  border: 2px solid red;
   border-radius: 5px;
-  position: absolute;
+margin-top: 100px;
   left: 38%;
   top: 200px;
 }

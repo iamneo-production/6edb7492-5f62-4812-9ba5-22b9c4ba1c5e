@@ -2,9 +2,9 @@ import React, { useState,useEffect } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../../API/Api";
 
 export const Register = (props) => {
-  // const navigate=useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [data,setData]=useState([]);
   const [city,setCity]=useState([]);
@@ -67,7 +67,7 @@ export const Register = (props) => {
   const handleSubmit  = async(e) => {
     e.preventDefault(); 
     console.log(formData);
-    axios.post("http://localhost:8090/api/auth/signup", formData)
+    axios.post(`${baseUrl}/api/auth/signup`, formData)
       .then(res => {
         console.log(res.data);
         navigate("/login");
