@@ -83,20 +83,6 @@ const DeliveryHome = () => {
                     </tr>
                   ))
                   }
-                  {/* <td>1</td>
-                  <td>12</td>
-                  <td>abcd</td>
-                  <td>xyz</td>
-                  <td>200</td>
-                  <td>xyzzsdfhsfsjkldfnakesaijedeja lskaklsdfhjflkasdn fawiehjiawfawjkehjk awehfjahi4trflkew kawje;lkjklawje</td>
-                  <td >
-                    <button className="acceptbutton">
-                      Accept
-                    </button>
-                    <button className="statusbutton">
-                      Delivered
-                    </button>
-                  </td> */}
             </tbody>
           </table></center>
         </div>

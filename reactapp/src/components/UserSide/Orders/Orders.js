@@ -91,18 +91,6 @@ const Orders = () => {
                      </tr>
                   ))
                 }
-                  {/* <td>1</td>
-                  <td>12</td>
-                  <td>abcd</td>
-                  <td>xyz</td>
-                  <td>200</td>
-                  <td>12.00</td>
-                  <td>Delivered</td>
-                  <td ><center>
-                    <button className="reorderbutton">
-                      Reorder
-                    </button></center>
-                  </td> */}
             </tbody>
           </table></center>
         </div>

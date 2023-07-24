@@ -4,6 +4,7 @@ import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
 import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
 const AddDish = () => {
     let navigate=useNavigate()
@@ -17,11 +18,7 @@ const AddDish = () => {
 
   const {id} = useParams();
   const { name, description, price,tags } = dish;
-  // const [selectedImage, setSelectedImage] = useState(null);
-
-  // const handleImageChange = (event) => {
-  //   setSelectedImage(event.target.files[0]);
-  // };
+  
 
 
   const onInputChange = (e) => {
@@ -55,6 +52,7 @@ const AddDish = () => {
 
   return (
     <div>
+      <Restaurantheader/>
       <div className={styles.box}>
         <h2>Add Dish</h2>
           <form onSubmit={(e)=>onSubmit(e)}>

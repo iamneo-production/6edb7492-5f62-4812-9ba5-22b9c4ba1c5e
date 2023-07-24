@@ -1,5 +1,3 @@
-// Header.js
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.jpeg';
@@ -32,6 +30,7 @@ const logoStyle = {
   width: '75px',
   height: '75px',
   marginRight: '10px',
+  borderRadius:'10px',
  
 };
 

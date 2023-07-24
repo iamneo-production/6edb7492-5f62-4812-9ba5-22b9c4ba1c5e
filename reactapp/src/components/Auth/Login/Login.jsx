@@ -3,6 +3,7 @@ import "./Login.css";
 import {json, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import { baseUrl } from "../../API/Api";
+import {FaRegWindowClose } from 'react-icons/fa';
 
 
 
@@ -63,7 +64,7 @@ import { baseUrl } from "../../API/Api";
         <div className="login-overlay">
         <div className="auth-form-container">
         <span className="close-button" onClick={handleClose}>
-        <a href="/"><i className="fa-solid fa-xmark" ></i></a>
+        <a href="/"><FaRegWindowClose /></a>
         </span>
 
             <h2>Login</h2>
