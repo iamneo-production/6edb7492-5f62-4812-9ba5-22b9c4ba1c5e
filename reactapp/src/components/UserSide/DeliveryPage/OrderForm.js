@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./delivery.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "../NavBar/Header";
 import OrderPlaced from "./OrderPlaced";
 
 function OrderForm() {
+  const {price} = useParams();
+  let totalCost = price;
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -18,8 +21,9 @@ function OrderForm() {
     setPaymentMethod(event.target.value);
   };
 
-  const handleOnlinePayment = () => {
-    navigate("/payment");
+  const handleOnlinePayment = (event) => {
+    setPaymentMethod(event.target.value);
+    navigate(`/payment/${totalCost}`);
   } 
 
   const handleSubmit = (event) => {

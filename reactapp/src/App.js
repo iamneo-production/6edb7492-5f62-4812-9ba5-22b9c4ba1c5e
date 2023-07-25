@@ -24,6 +24,9 @@ import LandingNav from './components/FoodlePortal/LandingNavbar/LandingNav';
 import PaymentForm from './components/UserSide/Payment/PaymentForm';
 import OrderPlaced from './components/UserSide/DeliveryPage/OrderPlaced';
 import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
+import ContactFile from './components/UserSide/Support/ContactForm/ContactFile';
+import Chatbot from './components/UserSide/Support/ContactForm/Bot/Chatbot';
+import Header from './components/UserSide/NavBar/Header';
 
    const App = () => {
   return (
@@ -50,11 +53,12 @@ import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
           {/* user side  */}
           <Route exact path="/user" element={<RestaurantSearch />} />
           <Route exact path="/profile" element={<ProfilePage />} />
-          <Route exact path="/checkout"  element={ <OrderForm/> } />
+          <Route exact path="/checkout/:price"  element={ <OrderForm/> } />
           <Route exact path="/vieworder" element={<Orders/>} />
           <Route exact path="/review" element={<Review/>} />
-          <Route exact path="/payment" element={<PaymentForm />} />
+          <Route exact path="/payment/:price" element={<PaymentForm />} />
           <Route exact path="/orderplaced" element={<OrderPlaced />} />
+          <Route exact path="/support" element={<><Header/><ContactFile /><Chatbot/></>} />
 
 
           {/* admin side */}

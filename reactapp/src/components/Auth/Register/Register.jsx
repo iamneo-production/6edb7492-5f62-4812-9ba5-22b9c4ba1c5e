@@ -5,7 +5,6 @@ import axios from "axios";
 import { baseUrl } from "../../API/Api";
 
 export const Register = (props) => {
-  // const navigate=useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [data,setData]=useState([]);
   const [city,setCity]=useState([]);
