@@ -94,6 +94,7 @@ function Sendmail() {
     email: document.getElementById("email").value,
     message: document.getElementById("message").value,
     OrderID: document.getElementById("order").value,
+    feedback: document.getElementById("feedback").value,
   };
   console.log(params);
 
@@ -107,6 +108,7 @@ function Sendmail() {
       document.getElementById("email").value = "";
       document.getElementById("message").value = "";
       document.getElementById("order").value = "";
+      document.getElementById("feedback").value = "";
 
       alert("Your message sent successfully!!");
     })

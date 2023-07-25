@@ -11,7 +11,7 @@ export const analyze = (text) => {
       text.includes("received wrong item")
     )
       return (
-        <p>
+        <p style={{color:'black',fontSize:'18px',fontFamily:'-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"'}}>
           Sorry to hear that.We will inform the restaurant about the issue and
           will make sure this does not repeat.if you are not satisfied with this
           help do you want to connect with live support instead?Yes/No
