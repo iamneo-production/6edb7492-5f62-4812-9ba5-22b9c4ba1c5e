@@ -23,14 +23,10 @@ import Review from './components/UserSide/Review/Review';
 import LandingNav from './components/FoodlePortal/LandingNavbar/LandingNav';
 import PaymentForm from './components/UserSide/Payment/PaymentForm';
 import OrderPlaced from './components/UserSide/DeliveryPage/OrderPlaced';
-<<<<<<< HEAD
-
-=======
 import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
 import ContactFile from './components/UserSide/Support/ContactForm/ContactFile';
 import Chatbot from './components/UserSide/Support/ContactForm/Bot/Chatbot';
 import Header from './components/UserSide/NavBar/Header';
->>>>>>> 14704cec6cbfa0084879fdab50a1ae32288ce48d
 
    const App = () => {
   return (
@@ -52,7 +48,7 @@ import Header from './components/UserSide/NavBar/Header';
           <Route exact path="/dish" element={<><DishHome /></>} />
           <Route path="/dish/:id"  element={<><DishHome /></>} />
           <Route exact path="/res/:rid/updatedish/:id" element={<><UpdateDish /></>} />
-         
+          <Route exact path="/restaurantreviews" element={<><RestaurantReviews /></>} />
                   
           {/* user side  */}
           <Route exact path="/user" element={<RestaurantSearch />} />

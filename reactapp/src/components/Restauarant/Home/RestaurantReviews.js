@@ -1,19 +1,4 @@
-// import React, { useState } from 'react';
-// import './RestaurantReviews.css';
-// import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
-// const RestaurantReview = () => {
-//   const [response, setResponse] = useState('');
 
-//   const handleInputChange = (event) => {
-//     setResponse(event.target.value);
-//   };
-
-//   const handleSubmit = () => {
-//     // Add your submit logic here
-//     console.log('Response submitted:', response);
-//     // Reset the response state after submission (if required)
-//     setResponse('');
-//   };
 
 //   return (
 //     <div><Restaurantheader />
@@ -89,6 +74,7 @@ const RestaurantReview = () => {
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Customer Name</th>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Comment</th>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Response</th>
+              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Ratings</th>
             </tr>
           </thead>
           <tbody>
@@ -96,16 +82,19 @@ const RestaurantReview = () => {
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Harish</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Good Restaurant</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Thank you!!</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>3</td>
             </tr>
             <tr>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Naveen</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Awesome dishes</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Tysm..!</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>2</td>
             </tr>
             <tr>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Harish</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Good Restaurant</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Thank you!!</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>4</td>
             </tr>
           </tbody>
         </table>

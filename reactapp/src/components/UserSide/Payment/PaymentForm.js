@@ -17,8 +17,8 @@ function PaymentForm() {
       alert('Please enter a valid amount');
     } else {
       var options = {
-        key: 'rzp_test_Hw7hLPDFrWqFGU',
-        key_secret: 'caCnUTr8dCu4oSPIDXYu4yp7',
+        key: 'rzp_test_SPVpyQqrDbkfed',
+        key_secret: 'DrBRScE6iTOmrT0hzXccMP88',
         amount: amount * 100,
         currency: 'INR',
         name: 'FOODLE_PROJECTS',
