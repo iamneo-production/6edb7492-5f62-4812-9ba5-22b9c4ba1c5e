@@ -77,7 +77,7 @@ const Orders = () => {
                     
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{order.orderId}</td>
+                      <td>{order.id}</td>
                       <td>{order.customerName}</td>
                       <td>{order.totalCost}</td>
                       <td>{new Date(order.deliveryTime).toLocaleDateString()}</td>

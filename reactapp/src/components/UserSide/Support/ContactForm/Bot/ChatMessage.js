@@ -1,6 +1,6 @@
 import React from "react";
 import {ChatDots} from "react-bootstrap-icons";
-
+import '../ContactFile.css';
 
 export default function ChatMessage(props) {
   return (
