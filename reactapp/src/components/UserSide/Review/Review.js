@@ -1,129 +1,110 @@
-import React, { useState } from "react";
-import Header from "../NavBar/Header";
-import { useLocation, useHistory } from "react-router-dom";
-import './Review.css';
+import React from 'react'
+import { useState } from 'react';
 
-const Review = ({ restaurantName }) => {
-    const [comment, setComment] = useState("");
-    const [rating, setRating] = useState(0);
-    const [name, setName] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
-  
-    const [showPopup, setShowPopup] = useState(false); // Add state for showing/hiding the popup
+const Review = () => {
+  const [ratings, setRatings] = useState([]);
+  const [hoveredRating, setHoveredRating] = useState(0);
+  const [inputValue, setInputValue] = useState('');
+  const [name, setName] = useState('');
+  const [averageRating, setAverageRating] = useState(0);
 
-    const handleCommentChange = (event) => {
-      setComment(event.target.value);
-    };
-  
-    const handleRatingChange = (event) => {
-      const typedRating = parseFloat(event.target.value);
-      setRating(typedRating);
-    };
-    const handlePopupClose = () => {
-        // Hide the popup when the user clicks on "Close"
-        setShowPopup(false);
-      };
-    
-  
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Add code to handle form submission, e.g., sending data to the server using axios.
-        // You can use the 'comment' and 'rating' states to send the user's input to the server.
-    
-        // For demonstration purposes, we'll just log the values to the console after form submission.
-        console.log("Submitted comment:", comment);
-        console.log("Submitted rating:", rating);
-    // Show the popup
-    setShowPopup(true);
-
-        
-    // Show success message
-    setSuccessMessage("Review submitted successfully");
-
-        // Clear the form after submission (optional).
-        setComment("");
-        setRating(0);};
-    const renderStars = () => {
-    const starIcons = [];
-    const fullStars = Math.floor(rating);
-    const remainingStarValue = rating - fullStars;
-
-    for (let i = 0; i < 5; i++) {
-      if (i < fullStars) {
-        starIcons.push(<i key={i} className="star fas fa-star filled" />);
-      } else if (i === fullStars && remainingStarValue > 0) {
-        const percentageWidth = remainingStarValue * 100;
-        starIcons.push(
-          <i
-            key={i}
-            className="star fas fa-star-half-alt filled"
-            style={{ width: `${percentageWidth}%` }}
-          />
-        );
-      } else {
-        starIcons.push(<i key={i} className="star far fa-star" />);
-      }
-    }
-    return starIcons;
+  const handleAddRating = (rating) => {
+    const updatedRatings = [...ratings, rating];
+    setRatings(updatedRatings);
   };
-    return (
-      <div>
-        <Header />
-       
-        <div className="review-container">
-          <h2>Review</h2>
-          <h3>Name</h3>
+  const calculateAverage = () => {
+    const sum = ratings.reduce((total, rating) => total + rating, 0);
+    const average = sum / ratings.length || 0;
+    setAverageRating(average.toFixed(2));
+  };
+  
 
-          <div className="reviewitemname-container">
-            <label className="reviewitemname">Restaurantname</label>
-            
-          </div>
+  const handleAddReview = () => {
+    if (inputValue.trim() !== '' && name.trim() !== '') {
+      setInputValue('');
+      setName('');
+    }
+  };
+
+  const handleRatingHover = (rating) => {
+    setHoveredRating(rating);
+  };
+
+  const handleRatingLeave = () => {
+    const mostRecentRating = ratings[ratings.length - 1];
+    setHoveredRating(mostRecentRating);
+  };
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    handleAddReview();
+
+   
+  };
+
+  const renderStars = () => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      const starClassName = i <= (hoveredRating || ratings[ratings.length - 1]) ? 'star filled' : 'star';
+      stars.push(
+        <span
+          key={i}
+          className={starClassName}
+          onClick={() => handleAddRating(i)}
+          onMouseEnter={() => handleRatingHover(i)}
+          onMouseLeave={handleRatingLeave}
+        >
+          ★
+        </span>
+      );
+    }
+    return stars;
+  };
+
+  return (
+    <>
+    <div className="container" style={{backgroundColor:'white'}}>
+      <div className="form-box">
+        <h2>Ratings and Reviews page</h2>
+        <div className="form-container">
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <h4>Comment</h4>
-              <label className="reviewcomment"></label>
-              <textarea
-                id="comment"
-                name="comment"
-                value={comment}
-                onChange={handleCommentChange}
-                placeholder="Write your comment here..."
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label className="reviewrating">Star Rating:</label>
-              <div className="star-rating-input-container">
-              <input
-                type="number"
-                step="0.1"
-                min="0"
-                max="5"
-                value={rating}
-                onChange={handleRatingChange}
-                required
-              />
-              <div className="selected-rating-container">
-                {renderStars()}
-              </div>
-            </div>
-              
-            </div>
-            <button type="submit">Submit Review</button>
+            <label htmlFor="name">Your Name:</label>
+            <input
+              type="text"
+              id="name"
+              className='comment'
+              name="name"
+              value={name}
+              onChange={handleNameChange}
+              placeholder="Enter your name"
+              required
+            />
+            <label htmlFor="rating">Rate:</label>
+            <div className="stars-container">{renderStars()}</div>
+            <label htmlFor="review">Write a Review:</label>
+            <textarea
+              id="review"
+              name="review"
+              className='commenttxt'
+              value={inputValue}
+              onChange={handleInputChange}
+              placeholder="Write your review here"
+              required
+            />
+            <button type="submit">Submit</button>
           </form>
         </div>
-         {/* Conditionally render the popup message */}
-      {showPopup && (
-        <div className="popup-container">
-          <div className="popup-content">
-            <p >Review submitted successfully</p>
-            <button onClick={handlePopupClose}>Close</button>
-          </div>
-        </div>
-      )}
       </div>
-    );
-  };
-  
-  export default Review;
-  
+    </div>
+    </>
+)};
+
+export default Review
