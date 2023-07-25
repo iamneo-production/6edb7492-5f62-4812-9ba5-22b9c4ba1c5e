@@ -12,7 +12,6 @@ import UpdateRestaurant from './components/Restauarant/Home/UpdateRestaurant';
 import DishHome from './components/Restauarant/Menu/DishHome';
 import AddDish from './components/Restauarant/Menu/AddDish';
 import UpdateDish from './components/Restauarant/Menu/UpdateDish';
-import RestaurantSearch from './components/UserSide/HomePage/RestaurantSearch';
 import ProfilePage from './components/UserSide/ProfilePage/ProfilePage'
 import AdminDashboard from './components/Admin/AdminDashboard';
 import DeliveryHome from './components/Delivery/Home/DeliveryHome';
@@ -27,6 +26,7 @@ import RestaurantReviews from './components/Restauarant/Home/RestaurantReviews';
 import ContactFile from './components/UserSide/Support/ContactForm/ContactFile';
 import Chatbot from './components/UserSide/Support/ContactForm/Bot/Chatbot';
 import Header from './components/UserSide/NavBar/Header';
+import TopBrandRestaurants from './components/UserSide/HomePage/TopBrandRestaurants';
 
    const App = () => {
   return (
@@ -51,7 +51,7 @@ import Header from './components/UserSide/NavBar/Header';
           <Route exact path="/restaurantreviews" element={<><RestaurantReviews /></>} />
                   
           {/* user side  */}
-          <Route exact path="/user" element={<RestaurantSearch />} />
+          <Route exact path="/user" element={<TopBrandRestaurants />} />
           <Route exact path="/profile" element={<ProfilePage />} />
           <Route exact path="/checkout/:price"  element={ <OrderForm/> } />
           <Route exact path="/vieworder" element={<Orders/>} />

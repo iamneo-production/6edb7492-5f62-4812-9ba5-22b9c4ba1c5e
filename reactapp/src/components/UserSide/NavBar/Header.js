@@ -25,8 +25,9 @@ const Header = () => {
           <div className="options-container">
             <div className="profile-options">
               <Link to="/profile">Profile</Link>
-              <Link to="/support">Support</Link>
+              <Link to="/user">Explore</Link>
               <Link to="/vieworder">Orders</Link>
+              <Link to="/support">Support</Link>
               <Link onClick={handleLogout} >Logout</Link>
             </div>
           </div>

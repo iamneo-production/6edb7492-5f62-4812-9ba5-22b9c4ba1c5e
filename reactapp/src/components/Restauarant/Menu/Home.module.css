@@ -43,7 +43,7 @@
   }
   .viewbutton:hover {
     background-color:rgb(75, 75, 75);
-    transition: 0.5s;
+
   } 
   .deletebutton {
     margin-top: 10px;
@@ -60,7 +60,6 @@
   }
   .deletebutton:hover {
     background-color:red;
-    transition: 0.5s;
   } 
 
   .updatebutton {
@@ -80,7 +79,6 @@
   
   .updatebutton:hover {
     background-color:#0004f2;
-    transition: 0.5s;
   }
 
 
@@ -93,7 +91,7 @@
     margin-top: 10px;
     text-decoration: none;
   }
-  .dimage
+.dimage
 {
   width: 100px;
   height: 100px;
@@ -120,5 +118,4 @@
   }
   .addbutton:hover {
     background-color:orange;
-    transition: 0.1s;
   }
