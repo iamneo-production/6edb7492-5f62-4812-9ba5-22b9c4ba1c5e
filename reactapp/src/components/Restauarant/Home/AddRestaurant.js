@@ -63,7 +63,7 @@ const AddRestaurant = () => {
               <input
                 type={"text"}
                 className={styles.text}
-                placeholder="Enter the dish name"
+                placeholder="Enter the resturant name"
                 name="restaurantName"
                 value={restaurantName}
                 onChange={(e) => onInputChange(e)}
