@@ -1,172 +1,62 @@
-.review-container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #fe0e0e;
-  border-radius: 5px;
-  margin-top: 20px;
-  background-color: #fff;
-}
-
-.review-container h2 {
-  margin-top: 0;
-  text-align: center;
-}
-
-.review-container h3 {
-  margin-top: 10px;
-}
-.form-group h4{
-  margin-top: 10px;
-}
-/* Review.css */
-
-.reviewitemname {
-  display: block;
-  margin-top: 5px;
-}
-
-.reviewitemname-container {
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #0c0c0c;
-  border-radius: 5px;
-  background-color: #f7f7f7;
-  max-width: 300px;
-}
-.reviewcomment{
-  display: block;
-  margin-top: 10px;
- }
- .reviewrating{
-  display: block;
-  margin-top: -15px;
- }
-
-.form-group {
-  margin-bottom: 20px;
-  
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-}
-
-.form-group textarea{
-
-  width: 400px;
-  height: 100px;
-  margin-left: 1px;
-  padding: 10px;
-  border: 1px solid #111111;
-  border-radius: 5px;
- 
-}
-
-.form-group select {
-  height: 40px;
-  margin-top: 10px;
-      width: 300px;
-      padding: 10px;
-      border: 1px solid  #0b0b0b;
-      border-radius: 5px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #0a0a0a;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: red;
-}
-
-/* Review.css */
-
-/* Add styles for the star icons */
-.stars-container {
-  display: inline-block;
-}
-
-.star {
-  font-size: 2rem;
-  cursor: pointer;
-  color: #d4d4d4; /* Empty star color */
-}
-
-.star.filled {
-  color: #ffac33; /* Filled star color */
-}
-
-.star-rating-input-container {
-  display: flex;
-  align-items: center;
-  width: 75px;
-  border: 1px solid  #0b0b0b;
-}
-
-input[type="number"] {
-  font-size: 20px; /* Increase the font size of the input */
-  padding: 5px; /* Increase padding for better appearance */
-  width: 60px; /* Increase the width of the input container */
-}
-
-.selected-rating-container {
-  display: flex;
-  align-items: center;
-  margin-left: 40px;
-}
-
-.star {
-  font-size: 24px; /* Increase the size of the stars */
-  margin: 0 2px; /* Add some spacing between stars */
-}
-.filled {
-  color: gold; /* Change the color of the filled stars to gold */
-}
-
-/* Review.css */
-
-/* Add any existing CSS styles for other elements here */
-
-/* Styles for the success message popup */
-.popup-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.conta{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
 }
 
-.popup-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.form-container {
   max-width: 400px;
-  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
 }
 
-.popup-content p {
-  margin: 0;
-  padding-bottom: 10px;
-  color: green; /* Set the text color to green */
+.stars-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.popup-content button {
-  padding: 8px 16px;
-  border: none;
+.star {
+  cursor: pointer;
+  font-size: 24px;
+  color: #d50c0c;
+}
+
+.star.filled {
+  color: orange;
+}
+
+.commenttxt {
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
   background-color: #4caf50;
   color: #fff;
-  border-radius: 4px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.comment{
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.comment:focus {
+  outline: none;
+  border-color: #4caf50; 
 }

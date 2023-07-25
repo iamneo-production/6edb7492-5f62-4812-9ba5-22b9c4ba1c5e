@@ -66,6 +66,7 @@
 }
 
 .item-card {
+  text-align: center;
   border: 3px solid #bb1414;
   border-radius: 8px;
   padding: 20px;
@@ -112,7 +113,7 @@
 
 
 .previous {
-  margin-top: -50px;
+  margin-top: 10px;
   top: 90px;
   left: 10px;
   background-color: #f6f0f0;
@@ -152,23 +153,21 @@
     background-color: #121111;
   }
 
-  .floating-button {
-    position: absolute;
-    height: 35px;
-    width: 60px;
-    text-align: center;
-    top: 130px;
-    right: 90px;
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.3s ease-in-out;
- }
-   
+ /* Updated CSS for .floating-button */
+.floating-button {
+  display: flex;
+ margin-left: 1300px;
+ 
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease-in-out;
+}
+
  
   .floating-button:hover {
     background-color: #f56868;
@@ -176,7 +175,8 @@
   .reviewoption {
     background-color: green;
     margin-top: 10px;
-    margin-left: 40px;
+    margin-left: 30px;
+    
     height: 35px; /* Increase the height of the button */
     width: 70px; /* Increase the width of the button */
     display: flex; /* To align the content inside the button */
@@ -335,4 +335,34 @@ a {
 
 .home-proceed-to-delivery:hover {
   background-color: rgb(194, 221, 13);
+}
+
+  
+.search-bar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-bar input[type="text"] {
+  border-radius: 50px;
+  background-color: #f0eaea;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  width: 200px;
+}
+
+.search-bar .search-button {
+  border-radius: 50px;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  border: none;
+}  
+  .search-button{
+    font-size: 12px;
+    padding: 2px 10px;
+    color: #040404;
+  }
+.search-button:hover{
+  background-color: rgb(247, 139, 120);
 }
