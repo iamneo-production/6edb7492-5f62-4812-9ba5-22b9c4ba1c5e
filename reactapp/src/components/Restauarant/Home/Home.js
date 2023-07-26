@@ -5,6 +5,7 @@ import styles from "./Home.module.css";
 import UpdateRestaurantcomp from "./UpdateRestaurant";
 import Restaurantheader from '../../UserSide/NavBar/Restaurantheader';
 import { baseUrl } from "../../API/Api";
+import RestaurantReview from "./RestaurantReviews";
 
 const Home = (props) => {
   const [restaurant, setRestaurant] = useState([]);
@@ -14,6 +15,8 @@ const Home = (props) => {
   const [refresh, setRefresh] = useState(false);
   const [update, setUpdate] = useState(false);
   const [UpdateRestaurant, setUpdateRestaurant] = useState({});
+  const [showReview, setShowReview] = useState(false);
+  const [reviewState, setReviewState] = useState({});
 
   useEffect(() => {
     axios.get(`${baseUrl}/restaurant/all`)
@@ -39,10 +42,15 @@ const Home = (props) => {
     setUpdateRestaurant(restaurant);
   }
 
+  const reviews = (reviews) => {
+    setShowReview(!showReview);
+    setReviewState(reviews)
+  }
+
   if(update){
     return <UpdateRestaurantcomp UpdateRestaurant={UpdateRestaurant} setUpdate={setUpdate} refresh={refresh} setRefresh={setRefresh}  />
   }
-  if (!update) {
+  if (!update && !showReview) {
     return (
       <>
          <Restaurantheader />
@@ -86,7 +94,8 @@ const Home = (props) => {
                         <Link className={styles.updatebutton} onClick={() => handleUpdate(restaurant)} >Update</Link>
                         <button className={styles.deletebutton} onClick={() => deleteRestaurant(restaurant.restaurantId)}>Delete</button>
                         <Link className={styles.updatebutton} to={`/dish/${restaurant.restaurantId}`}  >Customize Menu</Link>
-                        <Link className={styles.updatebutton} to="/restaurantreviews">Reviews</Link>
+                        {/* <Link className={styles.updatebutton} to="/restaurantreviews">Reviews</Link> */}
+                        <button className={styles.deletebutton} onClick={() => reviews(restaurant.reviews)}>Reviews</button>
                       </td>
                     </tr>
                   }
@@ -99,6 +108,10 @@ const Home = (props) => {
         </div>
         </>
     )
+  }
+
+  if (showReview) {
+    return <RestaurantReview  reviewState={reviewState} />
   }
 };
 

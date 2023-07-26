@@ -1,5 +1,7 @@
-import React from 'react'
-import { useState } from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
+import { baseUrl } from '../../API/Api';
 
 const Review = () => {
   const [ratings, setRatings] = useState([]);
@@ -7,6 +9,7 @@ const Review = () => {
   const [inputValue, setInputValue] = useState('');
   const [name, setName] = useState('');
   const [averageRating, setAverageRating] = useState(0);
+  const [rating, setRating] = useState(0);
 
   const handleAddRating = (rating) => {
     const updatedRatings = [...ratings, rating];
@@ -18,6 +21,8 @@ const Review = () => {
     setAverageRating(average.toFixed(2));
   };
   
+  const { id } = useParams();
+
 
   const handleAddReview = () => {
     if (inputValue.trim() !== '' && name.trim() !== '') {
@@ -43,10 +48,26 @@ const Review = () => {
     setName(event.target.value);
   };
 
+  const handleratingChange = (event) => {
+    setRating(event.target.value)
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     handleAddReview();
 
+    const data = {
+      "name": name,
+      "rating": rating,
+      "review": inputValue
+    }
+    axios.post(`${baseUrl}/restaurant/review?restaurantId=${id}`, data)
+      .then((response) => { 
+        console.log(response.data);
+        // implement back to previous page or to pop up sucess
+
+      })
+      .catch((err) => console.log(err))
    
   };
 
@@ -87,7 +108,8 @@ const Review = () => {
               placeholder="Enter your name"
               required
             />
-            <label htmlFor="rating">Rate:</label>
+              <label htmlFor="rating">Rate:</label>
+              <input type="number" id='rating' name="rating" onChange={handleratingChange} />
             <div className="stars-container">{renderStars()}</div>
             <label htmlFor="review">Write a Review:</label>
             <textarea

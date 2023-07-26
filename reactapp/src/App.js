@@ -55,7 +55,7 @@ import TopBrandRestaurants from './components/UserSide/HomePage/TopBrandRestaura
           <Route exact path="/profile" element={<ProfilePage />} />
           <Route exact path="/checkout/:price"  element={ <OrderForm/> } />
           <Route exact path="/vieworder" element={<Orders/>} />
-          <Route exact path="/review" element={<Review/>} />
+          <Route exact path="/review/:id" element={<Review/>} />
           <Route exact path="/payment/:price" element={<PaymentForm />} />
           <Route exact path="/orderplaced" element={<OrderPlaced />} />
           <Route exact path="/support" element={<><Header/><ContactFile /><Chatbot/></>} />
