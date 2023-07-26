@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 import React, { useState, useEffect } from 'react';
 import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
@@ -12,7 +9,6 @@ const RatingStars = ({ rating }) => {
     const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Calculate the number of empty stars
 
     const stars = [];
->>>>>>> 39630bc09f656744199ed7cd2e000430518e5a2b
 
     // Full stars
     for (let i = 0; i < fullStars; i++) {
@@ -71,31 +67,6 @@ const RestaurantReview = ({ reviewState }) => {
             <tr>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Customer Name</th>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Comment</th>
-<<<<<<< HEAD
-              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Response</th>
-              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Ratings</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Harish</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Good Restaurant</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Thank you!!</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>3</td>
-            </tr>
-            <tr>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Naveen</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Awesome dishes</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Tysm..!</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>2</td>
-            </tr>
-            <tr>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Harish</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Good Restaurant</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>Thank you!!</td>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>4</td>
-            </tr>
-=======
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Rating</th>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Response</th> {/* New column for responses */}
             </tr>
@@ -113,7 +84,6 @@ const RestaurantReview = ({ reviewState }) => {
                 </td>
               </tr>
             ))}
->>>>>>> 39630bc09f656744199ed7cd2e000430518e5a2b
           </tbody>
         </table>
       </div>
