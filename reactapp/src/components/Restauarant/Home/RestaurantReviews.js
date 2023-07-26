@@ -87,16 +87,17 @@ const RestaurantReview = ({ reviewState }) => {
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: "20px", textAlign: "center" }}>
+      <div style={{ marginTop: "15px", textAlign: "center" }}>
         <textarea
           value={response}
           onChange={handleInputChange}
           placeholder="Enter your response..." 
           style={{
-            width: '50%', 
+            width: '25%', 
             height: '100px',
-            padding: '8px', 
+            padding: '10px', 
             resize: 'vertical',
+            fontSize:'16px',
           }}
         />
 
@@ -105,7 +106,7 @@ const RestaurantReview = ({ reviewState }) => {
           onClick={handleSubmit}
           style={{
             
-            marginTop: '10px', 
+            marginTop: '-50px', 
             marginRight:'10px',
             padding: '10px 20px', 
             fontSize: '16px',
@@ -117,6 +118,7 @@ const RestaurantReview = ({ reviewState }) => {
         >
           Submit 
         </button>
+       
       </div>
     </div>
   );
