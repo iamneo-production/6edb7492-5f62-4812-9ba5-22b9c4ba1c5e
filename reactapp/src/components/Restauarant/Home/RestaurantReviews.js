@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
 const RatingStars = ({ rating }) => {
@@ -31,18 +31,30 @@ const RatingStars = ({ rating }) => {
   return <span>{renderStars()}</span>;
 };
 
+
 const RestaurantReview = ({ reviewState }) => {
   const [response, setResponse] = useState('');
-  console.log(reviewState);
+  const [responses, setResponses] = useState([]);
+
+  useEffect(() => {
+    // Load responses from localStorage on initial render
+    const storedResponses = localStorage.getItem('responses');
+    if (storedResponses) {
+      setResponses(JSON.parse(storedResponses));
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     setResponse(event.target.value);
   };
 
   const handleSubmit = () => {
-    // Add your submit logic here
-    console.log('Response submitted:', response);
-    // Reset the response state after submission (if required)
+    // Add the submitted response to the responses array
+    const updatedResponses = [...responses, response];
+    setResponses(updatedResponses);
+    // Save responses to localStorage
+    localStorage.setItem('responses', JSON.stringify(updatedResponses));
+    // Reset the response state after submission
     setResponse('');
   };
 
@@ -56,6 +68,7 @@ const RestaurantReview = ({ reviewState }) => {
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Customer Name</th>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Comment</th>
               <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Rating</th>
+              <th style={{ padding: '10px', borderBottom: '1px solid black' }}>Response</th> {/* New column for responses */}
             </tr>
           </thead>
           <tbody>
@@ -66,14 +79,47 @@ const RestaurantReview = ({ reviewState }) => {
                 <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
                   <RatingStars rating={Review.rating} />
                 </td>
+                <td style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+                  {index < responses.length ? responses[index] : ''} {/* Display response if available */}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <textarea
+          value={response}
+          onChange={handleInputChange}
+          placeholder="Enter your response..." 
+          style={{
+            width: '50%', 
+            height: '100px',
+            padding: '8px', 
+            resize: 'vertical',
+          }}
+        />
+
+      
+        <button
+          onClick={handleSubmit}
+          style={{
+            
+            marginTop: '10px', 
+            marginRight:'10px',
+            padding: '10px 20px', 
+            fontSize: '16px',
+            backgroundColor: '#007bff', 
+            color: '#fff', 
+            borderRadius: '5px', 
+            cursor: 'pointer', 
+          }}
+        >
+          Submit 
+        </button>
       </div>
     </div>
   );
 };
 
 export default RestaurantReview;
-  
