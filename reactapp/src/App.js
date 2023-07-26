@@ -48,7 +48,7 @@ import TopBrandRestaurants from './components/UserSide/HomePage/TopBrandRestaura
           <Route exact path="/dish" element={<><DishHome /></>} />
           <Route path="/dish/:id"  element={<><DishHome /></>} />
           <Route exact path="/res/:rid/updatedish/:id" element={<><UpdateDish /></>} />
-          <Route exact path="/restaurantreviews" element={<><RestaurantReviews /></>} />
+          
                   
           {/* user side  */}
           <Route exact path="/user" element={<TopBrandRestaurants />} />
