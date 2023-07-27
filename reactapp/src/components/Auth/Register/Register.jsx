@@ -8,6 +8,7 @@ export const Register = (props) => {
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [data,setData]=useState([]);
   const [city,setCity]=useState([]);
+  const [serverSideError, SetServer ] = useState("");
   const initialState = {
   form: {
     name: "",
@@ -69,10 +70,14 @@ export const Register = (props) => {
     console.log(formData);
     axios.post(`${baseUrl}/api/auth/signup`, formData)
       .then(res => {
+        console.log(res);
         console.log(res.data);
         navigate("/login");
       } )
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err.response.data)
+        SetServer(err.response.data)
+      })
   }  
 
   const handleClose = () => {
@@ -135,6 +140,8 @@ export const Register = (props) => {
           <option value='delivery'>Delivery</option>
           </select>
           
+          {serverSideError !=="" && <div style={"color: white "}  >{serverSideError}</div> }
+
           <button type="submit" className="btn">Register</button>
       </form>
     </div>
