@@ -2,6 +2,9 @@ import React,{useState} from "react";
 import "./Login.css";
 import {json, useNavigate} from 'react-router-dom';
 import axios from "axios";
+import { baseUrl } from "../../API/Api";
+import {FaRegWindowClose } from 'react-icons/fa';
+
 
 
  export const Login = () => {
@@ -23,7 +26,7 @@ import axios from "axios";
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(formData);
-        axios.post("http://localhost:8080/api/auth/login", formData)
+        axios.post(`${baseUrl}/api/auth/login`, formData)
             .then(res => { 
                 console.log(res.data);
                 localStorage.setItem("role", res.data.role);
@@ -39,6 +42,9 @@ import axios from "axios";
                 } else if (res.data.role === "admin" || localStorage.getItem("role") === "admin"){
                     navigate("/admin");
                 }
+                else if (res.data.role === "delivery" || localStorage.getItem("role") === "delivery"){
+                    navigate("/deliveryhome");
+                } 
             }).catch(err => console.log(err))
     };
    
@@ -58,7 +64,7 @@ import axios from "axios";
         <div className="login-overlay">
         <div className="auth-form-container">
         <span className="close-button" onClick={handleClose}>
-        <a href="/"><i className="fa-solid fa-xmark" ></i></a>
+        <a href="/"><FaRegWindowClose /></a>
         </span>
 
             <h2>Login</h2>

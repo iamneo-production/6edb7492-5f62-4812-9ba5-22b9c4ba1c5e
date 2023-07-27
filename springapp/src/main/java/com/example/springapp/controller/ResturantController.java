@@ -21,9 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.springapp.dto.ResutarantResponse;
 import com.example.springapp.model.Restaurant;
+import com.example.springapp.model.Review;
 import com.example.springapp.service.RestaurantService;
 
-import springfox.documentation.annotations.ApiIgnore;
+//import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping("/restaurant")
@@ -33,7 +34,7 @@ public class ResturantController {
     @Autowired
     private RestaurantService restaurantService;
 
-    @ApiIgnore
+    //@ApiIgnore
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Restaurant createRestaurant(@RequestBody Restaurant restaurant) {
@@ -50,7 +51,7 @@ public class ResturantController {
         return "Restaurant created";
     }
 
-    @ApiIgnore
+    //@ApiIgnore
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Restaurant> getAllRestaurants() {
@@ -88,7 +89,7 @@ public class ResturantController {
         return oneRestaurantList;
     }
 
-    @ApiIgnore
+    //@ApiIgnore
     @PostMapping("/link")
     @ResponseStatus(HttpStatus.CREATED)
     public String linkRestaurant(@RequestParam Long restaurantId, @RequestParam Long menuItemId) {
@@ -101,6 +102,13 @@ public class ResturantController {
     public String deleteRestaurant(@RequestParam Long id) {
         restaurantService.deleteRestaurant(id);
         return "Restaurant deleted";
+    }
+
+    @PostMapping("/review")
+    @ResponseStatus(HttpStatus.CREATED)
+    public String addReview(@RequestParam Long restaurantId,  @RequestBody Review review) {
+        restaurantService.addReview(restaurantId, review);
+        return "Review added";
     }
 
 

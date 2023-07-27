@@ -1,0 +1,57 @@
+.popup{
+    display: flex;
+    margin-top: 50px;
+    cursor: pointer;
+    margin-left: 500px;
+   
+    padding-top: 10px;
+    margin-left: 680px;
+    background-color: green;
+    color: aliceblue;
+    
+}
+.all{
+    
+    margin: 50px;
+    width:90%;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.cls-btn{
+    background-color: green;
+    color: aliceblue;
+    display:flex;
+    margin-left: 300px;
+}
+.heading{
+    padding-left: 450px;
+    color: green;
+}
+.hr3{
+    color: black;
+}
+.sbb{
+    background-color: rgb(73, 242, 73);
+    color: white;
+}
+.sbb:hover{
+    background-color:green ;
+    color: white;
+
+}
+.popupt{
+    display: flex;
+    margin-top: 50px;
+    cursor: pointer;
+    margin-left: 500px;
+   
+    padding-top: 10px;
+    margin-left: 680px;
+    background-color: green;
+    color: aliceblue;
+}
+.message-left{
+    color:black;
+}
