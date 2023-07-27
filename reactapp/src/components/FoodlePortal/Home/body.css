@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,800;1,900&display=swap');
+
+.boddyy{
+      display: flex;
+  font-size: 18px;
+      justify-content: center;
+     background:url('Foodle_landing.png') ;
+     
+     background-repeat: no-repeat;
+     font-weight: 400;
+     display: flex;
+     align-items: center;
+     background-size:cover;
+     background-position: center;
+    position: relative;
+    width:100%;
+    height: 100vh;
+}
+.header .navbar a:hover{
+      color: #4dff07;
+  }
+
+
+
+
+
+
+
+
+
+
+.image {
+      flex-basis: 50%;
+      padding-top: 50px;
+}
+
+.text{
+  font-size: 20px;
+padding-left: 20px;
+}
+
+.text2{
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Crimson+Text:ital,wght@0,600;1,700&family=Dancing+Script:wght@400;500&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+   
+    
+}
+
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+    width: 0.8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+    
+}
+
+section{
+    padding: 2rem 7%;
+}
+
+body{
+      background-color: #060606;
+}
+
+
+
+.unorder{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 7%;
+    margin-top: -10px;
+    margin-right: -200px;
+    padding-left: 650px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 110px;
+    list-style: none;
+    
+}
+.Header .Navbar li a{
+     
+    margin: 2px;
+    font-size: 22px;
+    font-weight: 300;
+    padding-right: 5px;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    align-items:flex-start;
+    margin-right: 50px;
+
+}
+
+
+.Header .logo img{
+    max-width: 500px;
+    padding-right: 50px;
+    align-self:flex-end;
+    padding-left: 100px;
+    max-height: 90px;
+    align-self: flex-start;
+    height: 300px;
+    width: 280px;
+  
+}
+
+
+
+.Header .Navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color:#d8a713;
+} 
+
+.Header .Navbar .li .link{
+    color: white;
+    font-size: 45px;
+}
+
+/* .Header .Navbar a:hover{
+    color:#2D2D82;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 0.5rem;
+    font-size: 28px;
+} */
+.Header .search input{
+    width: 100px;
+    padding-left: 10px;
+    color: #ffc107;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 0.5rem;
+    font-size: px;
+}
+
+.tx2{
+    background: none,!important;;
+    font-size:large;
+    color:black
+}
+
+.body h6{
+    display: flex;
+    margin-top: 1030px;
+    margin-left: 100px;
+    font-size: 32px;
+   
+    float: right;
+    display: inline;
+    color:black;
+    font-style:normal;
+    border-bottom: white;
+    padding-top: 40px;
+    font-family:'Times New Roman';
+    font-style: italic;
+    font-weight: 600;
+    width: 300%;
+    
+  }

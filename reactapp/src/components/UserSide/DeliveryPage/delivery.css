@@ -1,0 +1,208 @@
+.del-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 20px;
+    gap:30px;
+    margin-top:3cm;
+  }
+  
+  .del-form-container {
+    width:100%; 
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px 25px;
+    box-shadow: 3px 5px 10px #f6e050c9;
+    
+  }
+  
+  .del-form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: medium;
+    margin-left: 25px;
+    
+  
+  }
+  
+  .del-form-container input[type="text"],
+  textarea {
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    margin-left: 25px;
+  }
+  
+  .del-form-container textarea {
+    height: 80px;
+  }
+  
+  
+  .enabled-button {
+    background-color: #ffc107;
+    color: white;
+    border: #ffc107;
+    width: 200px;
+    padding: 10px;
+    font-size: 17px;
+    
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  .enabled-button:hover{
+    background-color: rgb(233, 83, 83);
+  }
+  .del-overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(49, 49, 49, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .del-popup {
+    line-height: 1.4;
+    background-color: #f59b46;
+    color: #fff;
+    text-align: center;
+    padding: 14px 28px;
+    border-radius: 15px;
+    width: 500px;
+    max-width: 90%;
+    height: 200px;
+  }
+  
+  .del-popup p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 40px;
+  }
+  
+  .del-popup button {
+    background-color: #a78c3e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .del-popup button:hover {
+    background-color: #45a049;
+  }
+  
+  .pay{
+    margin-top:-10px;
+    width: 9cm;
+    box-shadow: 1px 2px 6px 5px rgb(0, 0,0,.1);
+    padding-left:10px;
+    padding-right:3px;
+    margin-bottom:20px;
+    margin-left: 30px;
+  }
+  .del-flex{
+    display: flex;
+    gap:15px;
+  }
+  #cardName{
+    width: 8.0cm;
+    margin-left: 10px;
+  }
+  #cardNumber{
+    width: 3.5cm;
+    margin-left: 10px;
+  }
+  #cardExpMonth{
+    width: 3.5cm;
+    margin-left: 25px;
+  }
+  #cardExpYear{
+    width: 3.5cm;
+    margin-left: 10px;
+  }
+  #cardCvv{
+    width: 3.5cm;
+    margin-left: 25px;
+  }
+  #upiId{
+    width:90px;
+    height:3px;
+  }
+  #upiMethod{
+    width:130px;
+    height:25px;
+  }
+  
+  .del-form-container h2{
+    background-color:#ffc107;
+    border-radius:50px 20px;
+    padding:10px;
+    
+  }
+  .whole-content{
+    width: 100%;
+  }
+  
+  
+  .del-radio-option{ 
+    background-color: #fdd087;
+    width:5cm;
+    padding:5px 20px 15px ;
+    text-align: center;
+    border-radius:4px;
+    margin-top:-27px;
+    
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+  
+    margin-left: 25px;
+   
+  }
+  .cod-label-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .upi-label-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .card-label-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  #card{
+    margin-left: 80px;
+  
+  }
+  
+  #upi{
+    margin-left: 80px;
+  }
+  #cod{
+    margin-left: 80px;
+  }
