@@ -1,5 +1,5 @@
 import React from "react";
-import {ChatDots} from "react-bootstrap-icons";
+import {FaCommentDots} from 'react-icons/fa';
 import '../ContactFile.css';
 
 export default function ChatMessage(props) {
@@ -14,7 +14,7 @@ export default function ChatMessage(props) {
         </span>
       ) : (
         <span className="message-left">
-          <ChatDots className="message-icon" />
+          <FaCommentDots className="message-icon" />
           <span className="message-text">{props.message}</span>
         </span>
       )}
