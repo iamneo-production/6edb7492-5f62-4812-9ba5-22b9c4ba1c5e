@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -37,7 +36,6 @@ const HeroSlider = () => {
     
     <section className='bg2'>
      
-      <Container>
       
         <Slider>
           
@@ -60,7 +58,6 @@ const HeroSlider = () => {
             </div>
           ))}
         </Slider>
-      </Container>
     </section>
   );
 };
