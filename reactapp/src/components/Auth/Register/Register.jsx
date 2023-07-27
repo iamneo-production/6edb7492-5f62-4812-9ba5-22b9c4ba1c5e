@@ -70,8 +70,8 @@ export const Register = (props) => {
     console.log(formData);
     axios.post(`${baseUrl}/api/auth/signup`, formData)
       .then(res => {
-        console.log(res);
         console.log(res.data);
+        console.log(res);
         navigate("/login");
       } )
       .catch(err => {

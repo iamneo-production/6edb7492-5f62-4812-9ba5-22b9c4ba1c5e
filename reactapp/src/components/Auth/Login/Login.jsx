@@ -81,9 +81,9 @@ export const Login = () => {
                     <label htmlFor="password">Password</label>
                     <input value={formData.password} onChange={handleInputChange} type="password" placeholder="********" id="password" name="password" required />
 
-                    {customError !== "" &&
-                        <div style={{color:'red',fontSize:'5px'}}> {customError} </div>
-                    }
+                     {customError !== "" &&
+                        <div style={{color:'red',fontSize:'15px'}}> {customError} </div>
+                    } 
                     <button type="submit" className="btn">Log In</button>
 
                     <button className="toggle-button" onClick={toggle}>Don't have an account? Register here.</button>
