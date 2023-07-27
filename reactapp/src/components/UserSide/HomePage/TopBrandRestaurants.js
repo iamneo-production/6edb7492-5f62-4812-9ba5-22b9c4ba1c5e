@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./TopBrandRestaurants.css"; // Import the CSS file for styling
+import "./TopBrandRestaurants.css";
 import { useNavigate,Link } from "react-router-dom"; 
+
 import { baseUrl } from "../../API/Api";
 import Header from "../NavBar/Header";
-
 
 const TopBrandRestaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -12,6 +12,7 @@ const TopBrandRestaurants = () => {
   const [cart, setCart] = useState([]);
   const [searchLocation, setSearchLocation] = useState("");
   const [searchRestaurant, setSearchRestaurant] = useState("");
+  const [menuItemSearch, setMenuItemSearch] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     axios
@@ -25,28 +26,31 @@ const TopBrandRestaurants = () => {
     setSelectedRestaurant(null);
   }, []);
     
-    const handleBack = () => { 
-        setSelectedRestaurant(null)
-    }
+  const handleBack = () => { 
+    setSelectedRestaurant(null);
+    setMenuItemSearch(""); // Clear the menu item search input
+  }
+
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const handleRestaurantSelection = (restaurant) => {
     setSelectedRestaurant(restaurant);
   };
+
   const handleAddToCart = (item) => {
-    let newCart = [...cart]
-    let index = newCart.findIndex(cartItem => cartItem.id === item.id)
+    let newCart = [...cart];
+    let index = newCart.findIndex(cartItem => cartItem.id === item.id);
     if (index !== -1) {
-      newCart[index].quantity += 1
+      newCart[index].quantity += 1;
     } else {
-      newCart.push({ ...item, quantity: 1 })
+      newCart.push({ ...item, quantity: 1 });
     }
-    setCart(newCart)
-    console.log(cart," cart");
+    setCart(newCart);
+    console.log(cart, "cart");
   };
 
   const handleCheckOut = () => {
-    setViewCheckout(true)
+    setViewCheckout(true);
   }
 
 
@@ -168,43 +172,71 @@ const TopBrandRestaurants = () => {
   }
 
   if (selectedRestaurant) {
+    // Apply the menu item search filter
+    const filteredMenuItems = selectedRestaurant.restaurantmenu.filter((item) =>
+      item.name.toLowerCase().includes(menuItemSearch.toLowerCase())
+    );
+
     return (
-        <div>
-          <Header />
-            <a href="#" className="previous round" onClick={handleBack}>&#8249;</a>
-           
-        <div onClick={handleCheckOut} >
-                <div  class="floating-button" style={{marginTop:"20px"}}>Cart</div>
-                 </div>
-        <h2 style={{ color:"white",marginTop: "20px" ,textAlign:"center" }}>{selectedRestaurant.restaurantName}</h2>
-        <div className="items-container">
-          {selectedRestaurant.restaurantmenu.map((item, index) => (
-            <>
-            <div key={index} className="item-card" >
-              <h4 style={{ color: "white" }}>{item.name}</h4>
-                  {item.image && item.image.body && (
-                          <img
-                            src={`data:${item.image.headers['Content-Type'][0]};base64,${item.image.body}`}
-                        alt={item.restaurantName}
-                        className="item-image"
-                        style={{ height: "200px", width: "200px" }}
-                        />
-                        )}
-              <p style={{ color:"white" }}>Cusine: {item.description}</p>
-              <p style={{ color:"white" }}>Price: {item.price}</p>
-              <p style={{ color:"white" }}>Tags: {item.tags}</p>
-              <button className="addtocartbutton" onClick={() => handleAddToCart(item)}>
-                Add to Cart
-              </button>
-            </div>
-             
-            </>
-          ))}
+      <div>
+        <Header />
+        <a href="#" className="previous round" onClick={handleBack}>
+          &#8249;
+        </a>
+        <div className="search-bar" style={{marginTop:"1px"}}>
+          <input
+            type="text"
+            placeholder="Search menu items..."
+            value={menuItemSearch}
+            onChange={(e) => setMenuItemSearch(e.target.value)}
+          />
+        </div>
+        <div onClick={handleCheckOut}>
+          <div class="floating-button" style={{ marginTop: "10px" }}>
+            Cart
+          </div>
         </div>
         
+        <h2 style={{ color: "white", marginTop: "20px", textAlign: "center" }}>
+          {selectedRestaurant.restaurantName}
+        </h2>
+      
+
+        <div className="items-container">
+          {filteredMenuItems.length > 0 ? (
+            filteredMenuItems.map((item, index) => (
+              <div key={index} className="item-card">
+                <h4 style={{ color: "white" }}>{item.name}</h4>
+                {item.image && item.image.body && (
+                  <img
+                    src={`data:${item.image.headers["Content-Type"][0]};base64,${item.image.body}`}
+                    alt={item.restaurantName}
+                    className="item-image"
+                    style={{ height: "200px", width: "200px" }}
+                  />
+                )}
+                <p style={{ color: "white" }}>Cuisine: {item.description}</p>
+                <p style={{ color: "white" }}>Price: {item.price}</p>
+                <p style={{ color: "white" }}>Tags: {item.tags}</p>
+                <button className="addtocartbutton" onClick={() => handleAddToCart(item)}>
+                  Add to Cart
+                </button>
+              </div>
+            ))
+          ) : (
+            <p style={{ color: "white", textAlign: "center" }}>No menu items found</p>
+          )}
+        </div>
       </div>
     );
   }
+
+  // If no match for restaurant search or location search
+  const filteredRestaurants = restaurants.filter(
+    (restaurant) =>
+      restaurant.restaurantName.toLowerCase().includes(searchRestaurant.toLowerCase()) &&
+      restaurant.restaurantLocation.toLowerCase().includes(searchLocation.toLowerCase())
+  );
 
   return (
     <div>
@@ -222,62 +254,49 @@ const TopBrandRestaurants = () => {
           value={searchRestaurant}
           onChange={(e) => setSearchRestaurant(e.target.value)}
         />
-      
       </div>
-      
       <div className="restaurant-list-horizontal">
-        {restaurants
-          .filter(
-            (restaurant) =>
-              restaurant.restaurantName
-                .toLowerCase()
-                .includes(searchRestaurant.toLowerCase()) &&
-              restaurant.restaurantLocation
-                .toLowerCase()
-                .includes(searchLocation.toLowerCase())
-          )
-        .map((restaurant, index) => (
-          <div
-            key={index}
-            className="restaurant-card"
-            onClick={() => handleRestaurantSelection(restaurant)}
-          >
-                {restaurant.image && restaurant.image.body && (
-                          <img
-                            src={`data:${restaurant.image.headers['Content-Type'][0]};base64,${restaurant.image.body}`}
-                        alt={restaurant.restaurantName}
-                        className="restaurant-image"
-                        style={{ width: "300px", height: "150px" }}
-                          />
-                        )}
-           <div>
-  <h3 style={{ color: 'white', fontWeight: 'bold', fontSize: '15px',textAlign:"center" }}>
-    {restaurant.restaurantName}
-  </h3>
-  <p style={{ color: 'white', fontSize: '15px' }}>Location: {restaurant.restaurantLocation}</p>
-  <Link to={`/review/${restaurant.restaurantId}`} className="reviewoption">
-    Review
-  </Link>
-  <button
-    style={{
-      backgroundColor: 'transparent',
-      border: 'none',
-      fontSize: '20px',
-      cursor: 'pointer',
-      color: 'yellow',
-      outline: 'none',
-     
-    }}
-   
-  >
-    3&#9733; {/* Unicode character for a star (☆ or ★) */}
-    {/* Alternatively, you can use an icon library (e.g., Font Awesome) */}
-  </button>
-</div>
-
-          </div>
-        ))}
-        
+        {filteredRestaurants.length > 0 ? (
+          filteredRestaurants.map((restaurant, index) => (
+            <div
+              key={index}
+              className="restaurant-card"
+              onClick={() => handleRestaurantSelection(restaurant)}
+            >
+              {restaurant.image && restaurant.image.body && (
+                <img
+                  src={`data:${restaurant.image.headers["Content-Type"][0]};base64,${restaurant.image.body}`}
+                  alt={restaurant.restaurantName}
+                  className="restaurant-image"
+                  style={{ width: "300px", height: "150px" }}
+                />
+              )}
+              <div>
+                <h3 style={{ color: "white", fontWeight: "bold", fontSize: "15px", textAlign: "center" }}>
+                  {restaurant.restaurantName}
+                </h3>
+                <p style={{ color: "white", fontSize: "15px" }}>Location: {restaurant.restaurantLocation}</p>
+                <Link to={`/review/${restaurant.restaurantId}`}  className="reviewoption">
+                  Review
+                </Link>
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    fontSize: "20px",
+                    cursor: "pointer",
+                    color: "yellow",
+                    outline: "none",
+                  }}
+                >
+                  3&#9733;
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p style={{ color: "white", textAlign: "center" }}>No results found</p>
+        )}
       </div>
     </div>
   );

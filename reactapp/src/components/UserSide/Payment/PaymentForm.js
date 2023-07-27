@@ -17,8 +17,8 @@ function PaymentForm() {
       alert('Please enter a valid amount');
     } else {
       var options = {
-        key: 'rzp_test_Hw7hLPDFrWqFGU',
-        key_secret: 'caCnUTr8dCu4oSPIDXYu4yp7',
+        key: 'rzp_test_l1uxwqJEDMNkS9',
+        key_secret: 'kcjEhI7oMmZGMzr06qLh4WC3',
         amount: amount * 100,
         currency: 'INR',
         name: 'FOODLE_PROJECTS',
@@ -28,7 +28,7 @@ function PaymentForm() {
           navigate('/orderplaced');
         },
         notes: {
-          address: 'Pollachi',
+          address: 'Chennai',
         },
         theme: {
           color: '#3399cc',
