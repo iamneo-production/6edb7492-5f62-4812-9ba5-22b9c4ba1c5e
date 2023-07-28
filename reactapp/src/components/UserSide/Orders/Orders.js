@@ -20,7 +20,7 @@ const Orders = () => {
       console.log(err);
     })
   
-  }, [refresh])
+  },[])
 
   const handelOrder = (Reorder) => {
     console.log(Reorder);
@@ -29,7 +29,7 @@ const Orders = () => {
         description: item.description,
         name: item.name,
         price: item.price,
-        restaurantId: item.restaurantId,
+        quantity: item.quantity,
         tags: item.tags,
       }
     })
@@ -38,12 +38,14 @@ const Orders = () => {
       customerName: Reorder.customerName,
       status: "Pending",
       totalCost: Reorder.totalCost,
+      restaurantName: Reorder.restaurantName,
+      restaurantLocation: Reorder.restaurantLocation,
       items: Newitems,
       deliveryAddress: Reorder.deliveryAddress,
     }
     axios.post(`${baseUrl}/order`, newOrder ).then((res) => {
       console.log(res.data);
-      navigate("/checkout")
+      window.location.reload(false);
       setRefresh(!refresh);
     }).catch((err) => { 
       console.log(err);
@@ -57,15 +59,17 @@ const Orders = () => {
       <div className="adminbody">
         <h2 className="title">Orders</h2>
         <div className="table-container">
-          <center><table className="color-border-table" style={{ width: '900px' }}>
+          <center><table className="color-border-table" style={{ width: '1200px' }}>
             <thead>
               <tr>
                 <th style={{ width: '50px' }}>S.no</th>
-                <th style={{ width: '70px' }}>Order ID</th>
-                <th style={{ width: '120px' }}>Customer Name</th>
+                <th style={{ width: '120px' }}>Restaurant Name</th>
+                <th style={{ width: '200px' }}>Restaurant Location</th>
+                <th style={{ width: '250px' }}>Items</th>
                 <th style={{ width: '80px' }}>Total cost</th>
                 <th style={{ width: '120px' }}>Ordered Date</th>
-                <th style={{ width: '120px' }}>Ordered Time</th>
+                <th style={{ width: '120px' }}>Delivery Name</th>
+                <th style={{ width: '120px' }}>Delivery Contact</th>
                 <th style={{ width: '70px' }}>Status</th>
                 <th style={{ width: '200px' }}><center>Action</center></th>
               </tr>
@@ -77,11 +81,20 @@ const Orders = () => {
                     
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{order.id}</td>
-                      <td>{order.customerName}</td>
+                      <td>{order.restaurantName}</td>
+                      <td>{order.restaurantLocation}</td>
+                      <td>{Array.isArray(order.items) && order.items.length > 0 ? (
+                        // Check if orders.items is an array and not empty before mapping
+                        order.items.map((item, index) => (
+                            <>{item.name+" - "+item.quantity}<br></br></>
+                        ))
+                      ) : (
+                        <p>No items available.</p>
+                      )}</td>
                       <td>{order.totalCost}</td>
                       <td>{new Date(order.deliveryTime).toLocaleDateString()}</td>
-                      <td>{new Date(order.deliveryTime).toLocaleTimeString() }</td>
+                      <td>{order.deliveryName ? order.deliveryName : "none"}</td>
+                      <td>{order.delivreyPhone ? order.delivreyPhone : "none"}</td>
                       <td>{order.status}</td>
                       <td ><center>
                         <button onClick={() => handelOrder(order)} className="reorderbutton">

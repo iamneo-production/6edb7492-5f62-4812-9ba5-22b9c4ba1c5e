@@ -46,8 +46,8 @@ public class OrderController {
 
     @PutMapping("/status")
     @ResponseStatus(HttpStatus.OK)
-    public Order updateOrderStatus(@RequestParam Long id, @RequestParam String status) {
-        return orderService.updateOrderStatus(id, status);
+    public Order updateOrderStatus(@RequestParam Long id, @RequestParam String status,@RequestParam Long did) {
+        return orderService.updateOrderStatus(id, status,did);
     }
 
 
