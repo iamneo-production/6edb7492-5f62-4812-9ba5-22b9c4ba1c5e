@@ -32,7 +32,7 @@ const RatingStars = ({ rating }) => {
 };
 
 
-const RestaurantReview = ({ reviewState }) => {
+const RestaurantReview = ({ reviewState,setShowReview }) => {
   const [response, setResponse] = useState('');
   const [responses, setResponses] = useState([]);
 
@@ -46,6 +46,10 @@ const RestaurantReview = ({ reviewState }) => {
 
   const handleInputChange = (event) => {
     setResponse(event.target.value);
+  };
+
+  const handleCancel = () => {
+    setShowReview(false);
   };
 
   const handleSubmit = () => {
@@ -100,8 +104,9 @@ const RestaurantReview = ({ reviewState }) => {
             fontSize:'16px',
           }}
         />
-
-      
+      </div>
+      <br></br>
+      <center>
         <button
           onClick={handleSubmit}
           style={{
@@ -118,8 +123,24 @@ const RestaurantReview = ({ reviewState }) => {
         >
           Submit 
         </button>
+        <button
+          onClick={handleCancel}
+          style={{
+            
+            marginTop: '-50px', 
+            marginRight:'10px',
+            padding: '10px 20px', 
+            fontSize: '16px',
+            backgroundColor: '#007bff', 
+            color: '#fff', 
+            borderRadius: '5px', 
+            cursor: 'pointer', 
+          }}
+        >
+          cancel
+        </button>
        
-      </div>
+      </center>
     </div>
   );
 };

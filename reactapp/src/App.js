@@ -15,7 +15,10 @@ import UpdateDish from './components/Restauarant/Menu/UpdateDish';
 import ProfilePage from './components/UserSide/ProfilePage/ProfilePage'
 import AdminDashboard from './components/Admin/AdminDashboard';
 import DeliveryHome from './components/Delivery/Home/DeliveryHome';
+import DeliveryInfo from './components/Delivery/Info/DeliveryInfo';
 import DeliveryNav from './components/Delivery/Delivery Navbar/DeliveryNav';
+import DeliveryProfile from './components/Delivery/Profile/DeliveryProfile';
+import DeliveryOrder from './components/Delivery/Delivery Orders/DeliveryOrder';
 import OrderForm from './components/UserSide/DeliveryPage/OrderForm';
 import Orders from './components/UserSide/Orders/Orders';
 import Review from './components/UserSide/Review/Review';
@@ -67,7 +70,10 @@ import TopBrandRestaurants from './components/UserSide/HomePage/TopBrandRestaura
 
           {/* {Delivery Side} */}
           <Route exact path="/deliveryhome" element={<DeliveryHome/>} />
+          <Route exact path="/dprofile" element={<DeliveryProfile/>} />
           <Route exact path="/deliverynav" element={<DeliveryNav/>} />
+          <Route exact path="/viewdorder" element={<DeliveryOrder/>} />
+          <Route exact path="/deliveryinfo/:id" element={<DeliveryInfo/>} />
 
           </Routes>
       </Router>

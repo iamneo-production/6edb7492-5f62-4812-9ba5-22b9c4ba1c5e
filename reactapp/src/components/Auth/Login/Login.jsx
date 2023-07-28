@@ -35,7 +35,10 @@ export const Login = () => {
                 localStorage.setItem("email", res.data.email);
                 localStorage.setItem("name", res.data.name);
                 localStorage.setItem("phone", res.data.phone);
-                localStorage.setItem("address", res.data.address.city);
+                localStorage.setItem("street", res.data.address.street );
+                localStorage.setItem("address", res.data.address.city );
+                localStorage.setItem("state", res.data.address.state );
+                localStorage.setItem("zipCode", res.data.address.zipCode );
                 if (res.data.role === "restaurant" || localStorage.getItem("role") === "restaurant") {
                     navigate("/restauranthome");
                 } else if (res.data.role === "user" || localStorage.getItem("role") === "user") {

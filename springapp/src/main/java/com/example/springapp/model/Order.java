@@ -29,7 +29,7 @@ public class Order {
     private String customerName;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<MenuItem> items;
+    private List<MenuItems> items;
 
     private double totalCost;
     private String deliveryAddress;
@@ -37,8 +37,12 @@ public class Order {
     private String status;
 
     // pass tc
-    private Long restaurantId;
+    private long restaurantId;
+    private String restaurantName;
+    private String restaurantLocation;
     private Long deliveryExecutiveId;
+    private String deliveryName;
+    private String delivreyPhone;
     private Long paymentId;
     public Order(Long id, Long restaurantId, Long deliveryExecutiveId, Long paymentId, double totalCost, String customerName,  Date deliveryTime, String deliveryAddress
            ) {

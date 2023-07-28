@@ -11,13 +11,14 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
   const [file, setFile] = useState(null);
 
   const [restaurant, setRestaurant] = useState({
+    restaurantId: UpdateRestaurant.restaurantId,
     restaurantName: UpdateRestaurant.restaurantName,
     restaurantLocation: UpdateRestaurant.restaurantLocation,
     restaurantContact: UpdateRestaurant.restaurantContact,
-    restaurantEmail: UpdateRestaurant.restaurantEmail,
+    
   });
 
-  const { restaurantName, restaurantLocation, restaurantContact, restaurantEmail } = restaurant;
+  const {restaurantId ,restaurantName, restaurantLocation, restaurantContact } = restaurant;
 
   const onInputChange = (e) => {
     setRestaurant({ ...restaurant, [e.target.name]: e.target.value });
@@ -26,14 +27,11 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
+    formData.append('restaurantId', restaurantId);
     formData.append('restaurantName', restaurantName);
     formData.append('restaurantLocation', restaurantLocation);
     formData.append('restaurantContact', restaurantContact);
     formData.append('file', file);
-    formData.append('userId', localStorage.getItem('id'));
-    formData.append('restaurantEmail', restaurantEmail);
-    formData.append('id', UpdateRestaurant.restaurantId);
-
     console.log(formData);
     const config = {
       headers: {
@@ -42,7 +40,7 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
     };
 
     try {
-      await axios.post(`${baseUrl}/restaurant/create`, formData, config);
+      await axios.put(`${baseUrl}/restaurant`, formData, config);
       handleCancel();
       setRefresh(!refresh);
     } catch (error) {
@@ -73,7 +71,7 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
               name="restaurantName"
               value={restaurantName}
               onChange={onInputChange}
-            />
+              required/>
 
             <label htmlFor="address">Address</label>
             <input
@@ -83,7 +81,7 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
               name="restaurantLocation"
               value={restaurantLocation}
               onChange={onInputChange}
-            />
+              required/>
 
             <label htmlFor="Phone">Contact number</label>
             <input
@@ -93,17 +91,7 @@ const UpdateRestaurant = ({ UpdateRestaurant, setUpdate, refresh , setRefresh })
               name="restaurantContact"
               value={restaurantContact}
               onChange={onInputChange}
-            />
-
-            <label htmlFor="Email">Email</label>
-            <input
-              type="text"
-              className={styles.text}
-              placeholder="Enter the Email"
-              name="restaurantEmail"
-              value={restaurantEmail}
-              onChange={onInputChange}
-            />
+              required/>
 
             <label htmlFor="file">File:</label>
             <input required type="file" id="file" onChange={handleFileChange} />

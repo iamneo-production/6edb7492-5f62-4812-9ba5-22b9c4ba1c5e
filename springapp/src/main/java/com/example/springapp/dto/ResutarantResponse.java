@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import org.springframework.http.ResponseEntity;
 
+import com.example.springapp.model.Image;
 import com.example.springapp.model.Review;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class ResutarantResponse {
     private Long restaurantContact;
     private Long userId;    
     private ResponseEntity<byte[]> image;
+    private Image images;
     private List<Review> reviews;
 
     public ResutarantResponse(Long restaurantId, String restaurantName, String restaurantLocation,
