@@ -7,7 +7,7 @@ import Restaurantheader from '../../UserSide/NavBar/Restaurantheader';
 import { baseUrl } from "../../API/Api";
 import RestaurantReview from "./RestaurantReviews";
 
-const Home = (props) => {
+const Home = () => {
   const [restaurant, setRestaurant] = useState([]);
   const location=useLocation();
   const id=location.state?.id;
@@ -22,6 +22,7 @@ const Home = (props) => {
     axios.get(`${baseUrl}/restaurant/all`)
       .then((response) => { 
         setRestaurant(response.data)
+        console.log(response,"Zfdgidhkghdkjfgjknx");
     }).catch((err) => console.log(err));
   }, [refresh]);
 
@@ -111,7 +112,7 @@ const Home = (props) => {
   }
 
   if (showReview) {
-    return <RestaurantReview  reviewState={reviewState} />
+    return <RestaurantReview  setShowReview={setShowReview}  reviewState={reviewState} />
   }
 };
 

@@ -116,15 +116,13 @@ public class RestaurantService {
         restaurantRepo.save(restaurant);
     }
 
-    public void updateRestaurant(Restaurant restaurant) {
+    public void updateRestaurant(ResutarantResponse restaurant) {
         Restaurant restaurant1 = restaurantRepo.findById(restaurant.getRestaurantId())
                 .orElseThrow(() -> new RuntimeException("Restaurant not found"));
-        restaurant1.setRestaurantId(restaurant.getRestaurantId());
         restaurant1.setRestaurantName(restaurant.getRestaurantName());
         restaurant1.setRestaurantLocation(restaurant.getRestaurantLocation());
         restaurant1.setRestaurantContact(restaurant.getRestaurantContact());
-        restaurant1.setRestaurantEmail(restaurant.getRestaurantEmail());
-        restaurant1.setImage(restaurant1.getImage());
+        restaurant1.setImage(restaurant.getImages());
         restaurantRepo.save(restaurant1);
     }
 

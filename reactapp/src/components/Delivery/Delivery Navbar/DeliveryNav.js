@@ -20,7 +20,17 @@ const DeliveryNav = () => {
     <div className="header">
       <img src={logo} alt="Logo" style={logoStyle} />
       <div className="profile-icon" onClick={toggleOptions}>
-      <Link className='log' onClick={handleLogout} >Logout</Link>
+        <img src={profilePicUrl} alt="Profile" style={profilePicStyle} />
+        {showOptions && (
+          <div className="options-container">
+            <div className="profile-options">
+              <Link to="/dprofile">Profile</Link>
+              <Link to="/deliveryhome">Home</Link>
+              <Link to="/viewdorder">Order History</Link>
+              <Link onClick={handleLogout} >Logout</Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

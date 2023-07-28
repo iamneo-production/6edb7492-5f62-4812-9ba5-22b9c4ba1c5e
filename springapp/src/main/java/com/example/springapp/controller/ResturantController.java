@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.springapp.dto.ResutarantResponse;
+import com.example.springapp.model.Image;
 import com.example.springapp.model.Restaurant;
 import com.example.springapp.model.Review;
 import com.example.springapp.service.RestaurantService;
+import com.example.springapp.utilities.ImageUtil;
 
 //import springfox.documentation.annotations.ApiIgnore;
 
@@ -60,8 +62,19 @@ public class ResturantController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public String updateRestaurant(@RequestBody Restaurant restaurant) {
-        restaurantService.updateRestaurant(restaurant);
+    public String updateRestaurant(@RequestPart("file") MultipartFile file, @RequestParam String restaurantName,
+            @RequestParam String restaurantLocation, @RequestParam Long restaurantContact,@RequestParam Long restaurantId) throws IOException {
+    	ResutarantResponse rest=new ResutarantResponse();
+    	rest.setRestaurantId(restaurantId);
+    	rest.setRestaurantName(restaurantName);
+    	rest.setRestaurantContact(restaurantContact);
+    	rest.setRestaurantLocation(restaurantLocation);
+    	Image image = new Image();
+        image.setName(file.getOriginalFilename());
+        image.setType(file.getContentType());
+        image.setImageData(ImageUtil.compressImage(file.getBytes()));
+        rest.setImages(image);
+        restaurantService.updateRestaurant(rest);
         return "Restaurant Updated";
     }
 
