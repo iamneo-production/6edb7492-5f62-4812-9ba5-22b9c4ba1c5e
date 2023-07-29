@@ -28,6 +28,9 @@ public class Restaurant {
         @OneToOne(cascade = CascadeType.ALL)
         private Image image;
         private Long userId;
+
+        @OneToMany(cascade = CascadeType.ALL)
+        private List<Review> reviews;    
         
         public Restaurant(Long restaurantId, String restaurantName, String restaurantLocation, Long restaurantContact) {
                 this.restaurantId = restaurantId;

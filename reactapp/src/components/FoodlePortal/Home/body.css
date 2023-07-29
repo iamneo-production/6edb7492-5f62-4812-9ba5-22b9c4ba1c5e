@@ -1,111 +1,4 @@
-/* 
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
-
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,800;1,900&display=swap');
-
-.body{
-  font-size: 18px;
-  font-weight: 400;
-  display: flex;
-      align-items: center;
-      justify-content: center
-
-}
-
-
-.body h1{
- 
-      font-size: 75px;
-      align-items:center;
-      
-      display: inline;
-      color: rgb(248, 248, 242);
-      font-style:normal;
-      border-bottom: white;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      font-family: 'Tilt Prism', cursive;
-     
-  
-}
-
-
-.body h6{
-  font-size: 22px;
-  align-items:flex-end;
-  float: right;
-  display: inline;
-  color: yellow;
-  font-style:normal;
-  border-bottom: white;
-  padding-top: 40px;
-  font-family: 'Dancing Script', cursive;
-  font-weight: 400;
-  
-}
-
-.body img{
-  height: 450px;
-  width: 500px;
- background-position: center;
-  background-repeat: no-repeat;
-background-size: contain cover;
-max-width: 100%
-
-}
-
-.image {
-      flex-basis: 50%;
-      padding-top: 50px;
-}
-
-.text{
-  font-size: 20px;
-padding-left: 20px;
-}
-
-.text2{
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-}
-.body p{
-
-      font-size: 30px;
-      font-family: Arial, Helvetica, sans-serif;
-      padding-left: 180px;
-      color: #eedfdf;
-      align-items: center;
-      display: flex;
-      position: absolute;
-      font-style: italic;
-      padding-top: 500px;
-      font-family: 'Barlow Semi Condensed', sans-serif;
-
-}
-.body h2{
-      
-      color: #fff;
-      font-size: 30px;
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      padding-top: 700px;
-      align-items: center;
-      display: flex;
-      position: absolute;
-      border-bottom:  solid #ffc107;
-      
-    
-}
-    
- */
-
-
- @import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
 
@@ -132,9 +25,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 .header .navbar a:hover{
       color: #4dff07;
-      /* border-bottom: 0.1rem solid #fff;
-      padding-bottom: 0.5rem;
-      font-size: 28px; */
   }
 
 
@@ -178,7 +68,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Crimson+Text:ital,wght@0,600;1,700&family=Dancing+Script:wght@400;500&display=swap');
 
-*{
+/* *{
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -187,10 +77,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     border: none;
     text-decoration: none;
     text-transform: capitalize;
-    transition: 0.2s linear;
-   
-    
-}
+    transition: 0.2s linear; 
+} */
 
 
 html{

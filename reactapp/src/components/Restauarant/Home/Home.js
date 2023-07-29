@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Home.module.css";
 import UpdateRestaurantcomp from "./UpdateRestaurant";
-import Header from '../../UserSide/NavBar/Header';
+import Restaurantheader from '../../UserSide/NavBar/Restaurantheader';
 import { baseUrl } from "../../API/Api";
+import RestaurantReview from "./RestaurantReviews";
 
-const Home = (props) => {
+const Home = () => {
   const [restaurant, setRestaurant] = useState([]);
   const location=useLocation();
   const id=location.state?.id;
@@ -14,11 +15,14 @@ const Home = (props) => {
   const [refresh, setRefresh] = useState(false);
   const [update, setUpdate] = useState(false);
   const [UpdateRestaurant, setUpdateRestaurant] = useState({});
+  const [showReview, setShowReview] = useState(false);
+  const [reviewState, setReviewState] = useState({});
 
   useEffect(() => {
     axios.get(`${baseUrl}/restaurant/all`)
       .then((response) => { 
         setRestaurant(response.data)
+        console.log(response,"Zfdgidhkghdkjfgjknx");
     }).catch((err) => console.log(err));
   }, [refresh]);
 
@@ -39,13 +43,18 @@ const Home = (props) => {
     setUpdateRestaurant(restaurant);
   }
 
+  const reviews = (reviews) => {
+    setShowReview(!showReview);
+    setReviewState(reviews)
+  }
+
   if(update){
     return <UpdateRestaurantcomp UpdateRestaurant={UpdateRestaurant} setUpdate={setUpdate} refresh={refresh} setRefresh={setRefresh}  />
   }
-  if (!update) {
+  if (!update && !showReview) {
     return (
       <>
-         <Header></Header>
+         <Restaurantheader />
       <div className={styles.contain}>
       <div className={styles.py}>
           <a className={styles.brand}>
@@ -86,6 +95,8 @@ const Home = (props) => {
                         <Link className={styles.updatebutton} onClick={() => handleUpdate(restaurant)} >Update</Link>
                         <button className={styles.deletebutton} onClick={() => deleteRestaurant(restaurant.restaurantId)}>Delete</button>
                         <Link className={styles.updatebutton} to={`/dish/${restaurant.restaurantId}`}  >Customize Menu</Link>
+                        {/* <Link className={styles.updatebutton} to="/restaurantreviews">Reviews</Link> */}
+                        <button className={styles.deletebutton} onClick={() => reviews(restaurant.reviews)}>Reviews</button>
                       </td>
                     </tr>
                   }
@@ -98,6 +109,10 @@ const Home = (props) => {
         </div>
         </>
     )
+  }
+
+  if (showReview) {
+    return <RestaurantReview  setShowReview={setShowReview}  reviewState={reviewState} />
   }
 };
 

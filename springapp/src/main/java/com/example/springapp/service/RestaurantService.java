@@ -18,6 +18,7 @@ import com.example.springapp.dto.ResutarantResponse;
 import com.example.springapp.model.Image;
 import com.example.springapp.model.MenuItem;
 import com.example.springapp.model.Restaurant;
+import com.example.springapp.model.Review;
 import com.example.springapp.repository.MenuItemRepo;
 import com.example.springapp.repository.ResturantRepo;
 import com.example.springapp.utilities.ImageUtil;
@@ -69,9 +70,7 @@ public class RestaurantService {
             }
             restaurantList.add(
                     new ResutarantResponse(res.getRestaurantId(), res.getRestaurantName(), res.getRestaurantLocation(),
-                            res.getRestaurantEmail(), res.getRestaurantContact(), menuList, img, res.getUserId()));
-            System.out.println("Restaurant List: " + res.getUserId());
-            System.out.println("Restaurant List: " + restaurantList.get(restaurantList.size()-1).getUserId());
+                            res.getRestaurantEmail(), res.getRestaurantContact(), menuList, img, res.getUserId(), res.getReviews()  ));
         }
         return restaurantList;
     }
@@ -117,20 +116,31 @@ public class RestaurantService {
         restaurantRepo.save(restaurant);
     }
 
-    public void updateRestaurant(Restaurant restaurant) {
+    public void updateRestaurant(ResutarantResponse restaurant) {
         Restaurant restaurant1 = restaurantRepo.findById(restaurant.getRestaurantId())
                 .orElseThrow(() -> new RuntimeException("Restaurant not found"));
-        restaurant1.setRestaurantId(restaurant.getRestaurantId());
         restaurant1.setRestaurantName(restaurant.getRestaurantName());
         restaurant1.setRestaurantLocation(restaurant.getRestaurantLocation());
         restaurant1.setRestaurantContact(restaurant.getRestaurantContact());
-        restaurant1.setRestaurantEmail(restaurant.getRestaurantEmail());
-        restaurant1.setImage(restaurant1.getImage());
+        restaurant1.setImage(restaurant.getImages());
         restaurantRepo.save(restaurant1);
     }
 
     public void deleteRestaurant(Long id) {
         restaurantRepo.deleteById(id);
+    }
+
+    @Transactional
+    public void addReview(Long restaurantId, Review review) {
+        Restaurant restaurant = restaurantRepo.findById(restaurantId)
+                .orElseThrow(() -> new RuntimeException("Restaurant not found"));
+        Review review1 = new Review();
+        review1.setName(review.getName());
+        review1.setReview(review.getReview());
+        review1.setRating(review.getRating());
+        review1.setResponse(null);
+        restaurant.getReviews().add(review1);
+        restaurantRepo.save(restaurant);
     }
         
 }

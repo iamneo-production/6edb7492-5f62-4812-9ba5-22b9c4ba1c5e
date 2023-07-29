@@ -1,224 +1,368 @@
+/* Restaurant list styles */
 .restaurant-list-horizontal {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .restaurant-card {
-    display: flex;
-    height: 150px;
-    width: 500px;
-    align-items: center;
-    margin: 10px;
-    margin-left: 150px;
-    padding: 10px;
-    border: 3px solid #e11919;
-    background-color: #0e0e0e;
-    cursor: pointer;
-    
-  }
-  .search-restaurantdetails{
-    color: #ee0b0b;
-  }
-  .restaurant-card:hover {
-    background-color: #f6e989a2;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
 
-  .restaurant-image {
-      width: 100%; /* Adjust the width of the image */
-      height: 100%;
-      object-fit: cover;
-  }
-  /* Details for selected restaurant */
- 
-  .previous {
-    top: 110px;
-    left: 10px;
-    background-color: #f2f0f0;
-    color: #040404;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    border-radius: 50%;
-    padding: 10px 16px;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.restaurant-card {
+  display: flex;
+  height: 180px;
+  width: 500px;
+  align-items: center;
+  margin: 10px;
+  margin-left: 80px;
+  margin-right: 80px;
+  padding: 10px;
+  border: 3px solid #e11919;
+  background-color: #0e0e0e;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  background-color: #f6e989a2;
+}
+
+.restaurant-image {
+  width: 100px;
+  height: 100px; 
+  object-fit: cover; 
+  border-radius: 8px; 
+  margin-right: 30px; 
+}
+
+.restaurant-card-content {
+  display: flex; 
+  flex-direction: column;
+  flex: 1; 
+}
+
+.restaurant-card h3 {
+  margin: 0;
+  color: #444;
+}
+
+.restaurant-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Item card styles */
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; 
+}
+.items-title{
+  font-size: 18px; 
+  color: #333; 
+  margin: 5px 0 -10px;
+  text-align: center; 
   
-  .round {
-    border: 2px solid #333;
-  }
-  
-  .previous:hover {
-    background-color: #f00f0f;
-  }
-  
-  .previous.round {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-  }
-  
-  
-  .item-card {
-    flex: 0 0 300px;
-    margin-top: 20px;
-    margin-left: 300px;
-    padding: 10px;
-    border: 3px solid #bb1414;
-    background-color: rgb(18, 18, 17);
-    color: rgb(245, 242, 242);
-    align-items: center;
-    height: 400px;
-    width: 300px;
-  }
-  
-  .item-card:hover {
-    background-color: #f6e989a2;
-  }
-  
-  .item-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-  
-  .item-text {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white;
-    font-size: medium;
-  }
-  
-  
-  .addtocartbutton{
- 
-    background-color: rgb(251, 247, 247);
+}
+
+.item-card {
+  text-align: center;
+  border: 3px solid #bb1414;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  background-color: rgb(18, 18, 17);
+  overflow: hidden; 
+  color: rgb(245, 242, 242);
+}
+.item-card:hover {
+  background-color: #f6e989a2;
+}
+.item-card h4 {
+  margin: 0;
+  color: #333;
+}
+
+.item-image {
+  width: 100%;
+  max-height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.item-card p {
+  margin: 5px 0;
+  color: #444;
+}
+
+.item-card button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.previous {
+  margin-top: 10px;
+  top: 90px;
+  left: 10px;
+  background-color: #f6f0f0;
+  color: #040404;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 10px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.round {
+  border: 2px solid #333;
+}
+
+.previous:hover {
+  background-color: #f00f0f;
+}
+
+.previous.round {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+
+.addtocartbutton{
+  margin-top: 5px;
+    background-color: #4CAF50;
+    
   }
   .addtocartbutton:hover{
     background-color: #121111;
   }
-  button {
-    padding: 8px 12px;
-    background-color: #f8f6f6;
-    color: #ef0c0c;
-    border-color: rgb(9, 171, 33);
-    cursor: pointer;
+
+ /* Updated CSS for .floating-button */
+.floating-button {
+  display: flex;
+ margin-left: 1300px;
+ 
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+ 
+  .floating-button:hover {
+    background-color: #f56868;
+  }
+  .reviewoption {
+    background-color: green;
+    margin-top: 10px;
+    margin-left: 30px;
+    
+    height: 35px; /* Increase the height of the button */
+    width: 70px; /* Increase the width of the button */
+    display: flex; /* To align the content inside the button */
+    justify-content: center; /* To horizontally center the content */
+    align-items: center; /* To vertically center the content */
+    font-size: 15px; /* Adjust the font size to fit the content */
+    border-radius: 10px;
+     
   }
   
-  button:hover {
-    background-color: #f2f5f3e9;
+  .reviewoption:hover {
+    background-color: red;
   }
+  
 
-  *{
-    margin: 0;
-    padding: 0;
-    
-}
+/* Checkout styles */
 article{
-    width: 60%;
-    margin: auto;
-    background-color: aliceblue;
-    padding:4px;
-    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
-    border-radius:15px;
-    margin-top:5px;
-    
+  width: 60%;
+  margin: auto;
+  background-color: aliceblue;
+  padding:4px;
+  box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+  border-radius:15px;
+  margin-top:5px;
+  
+}
+.cart_box p{
+  color: black;
+  font-size: large;
 }
 .cart_box img{
-    width: 50px;
-    height: 50px;
-    border-radius:20px;
+  width: 75px;
+  height: 75px;
+  border-radius:20px;
 }
 .cart_img{
-    display: flex;
-    width: 400px;
+  display: flex;
+  width: 400px;
 }
 .cart_img p {
-    font-weight: times new roman;
-    margin-left: 15px;
-    margin-top:10px;
-    
+  font-weight: times new roman;
+  margin-left: 15px;
+  margin-top:10px;
+  
 }
 .cart_box{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*border-style: solid;
-    border-color:  rgb(189, 198, 201) ;
-    border-radius: 10px;
-    padding: 10px;*/
-    margin-top: 20px;
-    /*border-bottom: 2px solid rgb(189, 198, 201);
-    padding-bottom: 5px;*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*border-style: solid;
+  border-color:  rgb(189, 198, 201) ;
+  border-radius: 10px;
+  padding: 10px;*/
+  margin-top: 20px;
+  /*border-bottom: 2px solid rgb(189, 198, 201);
+  padding-bottom: 5px;*/
 }
 .cart_box:hover{
-    box-shadow: 0 10px 10px 10px rgba(249, 84, 84, 0.1);
-    cursor: pointer;
+  box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 .cart_box div:nth-child(2) button{
-    padding: 5px 10px;
-    font-weight: bold;
-    margin-right: 5px;
-    background-color: rgb(231, 227, 206);
-    border: 2px;
-    background-color: rgb(231, 227, 206);
+  padding: 5px 10px;
+  font-weight: bold;
+  margin-right: 5px;
+  background-color: rgb(231, 227, 206);
+  border: 2px;
+  background-color: rgb(231, 227, 206);
 }
 .cart_box div:nth-child(3) button{
-    padding: 5px 10px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border:none;
-    outline: none;
-    color: white;
-    background-color: #ffc107;
-    opacity:0.8;
-    /*background-color: rgb(194, 207, 212);*/
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 5px 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border:none;
+  outline: none;
+  color: white;
+  background-color: #ffc107;
+  opacity:0.8;
+  /*background-color: rgb(194, 207, 212);*/
+  border-radius: 5px;
+  cursor: pointer;
 }
 .cart_box div:nth-child(3) button:hover{
-    background-color: rgb(236, 30, 30);
+  background-color: rgb(236, 30, 30);
 }
 .cart_box div:nth-child(3) span{
-    background-color: #ffc107 ;
-    opacity:0.8;
-    color:white;
-    border: 1px solid rgba(247, 241, 88, 0);
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-right: 10px;
+  padding: 7px 10px;
+  background-color: #ffc107 ;
+  opacity:0.8;
+  color:white;
+  border: 1px solid rgba(247, 241, 88, 0);
+  
+  border-radius: 5px;
+  margin-right: 10px;
 }
+
 .total{
-    font-style:times new roman;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid rgb(243, 219, 99) ;
-    padding: 10px;
+  font-style:times new roman;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(243, 219, 99) ;
+  padding: 10px;
 }
 .total span:nth-child(1){
-    font-size: 2rem;
-    /*color: rgb(255, 128, 128);*/
-    /*font-weight: bold;*/
-    letter-spacing: 2px;
+  font-size: 2rem;
+  /*color: rgb(255, 128, 128);*/
+  /*font-weight: bold;*/
+  letter-spacing: 2px;
 }
 .total span:nth-child(2){
-    font-size: 2rem;
-    color: rgb(177, 176, 176);
-    
+  font-size: 2rem;
+  color: rgb(177, 176, 176);
+  
 }
 .total{
-    color: gray;
+  color: gray;
 }
-/*.backgroundimg{
-    background-image: url('https://www.shutterstock.com/image-vector/fast-delivery-by-scooter-on-260nw-1540323020.jpg');
-    background-repeat: no-repeat;
-    height:100vh;
-    left:1px
-    width:500px;
-    margin-left:1px;
-    margin-top:5px;
-}*/
+
+
+/* Checkout styles */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Custom styles */
+.text-center {
+  text-align: center;
+}
+
+/* Link styles */
+a {
+  color: white;
+  text-decoration: none;
+}
+.home-proceed-to-delivery {
+  background-color: orange;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.home-proceed-to-delivery:hover {
+  background-color: rgb(194, 221, 13);
+}
+
+  
+.search-bar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-bar input[type="text"] {
+  border-radius: 50px;
+  background-color: #f0eaea;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  width: 200px;
+}
+
+.search-bar .search-button {
+  border-radius: 50px;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  border: none;
+}  
+  .search-button{
+    font-size: 12px;
+    padding: 2px 10px;
+    color: #040404;
+  }
+.search-button:hover{
+  background-color: rgb(247, 139, 120);
+}

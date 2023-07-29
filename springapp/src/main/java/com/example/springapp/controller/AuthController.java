@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.springapp.dto.Customers;
 import com.example.springapp.dto.LoginRequest;
 import com.example.springapp.dto.UserChangeRequest;
 import com.example.springapp.dto.UserResponse;
@@ -50,7 +51,7 @@ public class AuthController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> updateUser(@RequestBody Customer customer) {
+    public ResponseEntity<?> updateUser(@RequestBody Customers customer) {
         return customerService.updateUser(customer);
     }
     

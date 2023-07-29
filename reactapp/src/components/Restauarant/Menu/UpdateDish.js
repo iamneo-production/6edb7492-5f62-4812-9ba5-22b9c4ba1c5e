@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "./style.module.css";
-import { Form, Button } from 'react-bootstrap';
 import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 const UpdateDish = () => {
   let navigate = useNavigate();
   const { rid,id } = useParams();
@@ -47,11 +47,12 @@ const UpdateDish = () => {
 
   return (
     <div>
+      <Restaurantheader/>
       <div className={styles.box}>
         <h2>Update Dish</h2>
         <form onSubmit={onSubmit}>
           <div>
-            <label htmlFor="name">Name</label>
+            <label className='labl' htmlFor="name">Name</label>
             <input
               type="text"
               className={styles.text}
@@ -62,7 +63,7 @@ const UpdateDish = () => {
             />
           </div>
           <div>
-            <label htmlFor="description">Cuisine</label>
+            <label className="labl" htmlFor="description">Cuisine</label>
             <input
               type="text"
               className={styles.text}
@@ -73,7 +74,7 @@ const UpdateDish = () => {
             />
           </div>
           <div>
-            <label htmlFor="price">Price</label>
+            <label className='labl' htmlFor="price">Price</label>
             <input
               type="text"
               className={styles.text}
@@ -84,7 +85,7 @@ const UpdateDish = () => {
             />
           </div>
           <div>
-            <label htmlFor="tags">Tags</label>
+            <label className='labl' htmlFor="tags">Tags</label>
             <input
               type="text"
               className={styles.text}
