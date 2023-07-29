@@ -30,10 +30,10 @@
 }
 
 .u-review{
-  width: 100%;
+  width: 310px;
   height: 100px;
-  padding: 5px;
-  margin-bottom: 10px;
+  
+  
 }
 
 .s-btn{
@@ -57,4 +57,31 @@
 .i-tag[type="text"]:focus {
   outline: none;
   border-color: #4caf50; 
+}
+.titlestyle
+{
+  color: orange;
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.popup--visible {
+  display: block;
+}
+
+.popup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
