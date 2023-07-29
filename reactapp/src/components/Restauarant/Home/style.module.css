@@ -5,6 +5,7 @@
   padding: 100px;
   margin: auto;
   margin-top: 50px;
+  font-size: 15px;
 }
 .box label,h2
 {
@@ -39,7 +40,6 @@
 
 .savebutton:hover {
   background-color:darkgreen;
-  transition: 0.5s;
 }
 
 .cancelbutton {
@@ -57,7 +57,6 @@
 
 .cancelbutton:hover {
   background-color:rgb(242, 9, 9);
-  transition: 0.5s;
 }
 
 .homebutton {
@@ -75,7 +74,6 @@
 
 .homebutton:hover {
   background-color:rgb(14, 119, 154);
-  transition: 0.5s;
 }
 .buttoncontainer {
   text-align: center;

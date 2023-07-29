@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "./style.module.css";
-import { Form, Button } from 'react-bootstrap';
-
+import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 const UpdateDish = () => {
   let navigate = useNavigate();
   const { rid,id } = useParams();
@@ -11,7 +11,7 @@ const UpdateDish = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/menu-item?id=${id}`)
+      .get(`${baseUrl}/menu-item?id=${id}`)
       .then((res) => {
         console.log(res.data);
         setDish({name:res.data[0].name,description:res.data[0].description,price:res.data[0].price,tags:res.data[0].tags,restaurantId: rid,id:id});
@@ -37,7 +37,7 @@ const UpdateDish = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(dish);
-    await axios.put(`http://localhost:8080/menu-item`, dish)
+    await axios.put(`${baseUrl}/menu-item`, dish)
       .then((res) => { 
         console.log(res.data);
         navigate(-1);
@@ -47,11 +47,12 @@ const UpdateDish = () => {
 
   return (
     <div>
+      <Restaurantheader/>
       <div className={styles.box}>
         <h2>Update Dish</h2>
         <form onSubmit={onSubmit}>
           <div>
-            <label htmlFor="name">Name</label>
+            <label className='labl' htmlFor="name">Name</label>
             <input
               type="text"
               className={styles.text}
@@ -62,7 +63,7 @@ const UpdateDish = () => {
             />
           </div>
           <div>
-            <label htmlFor="description">Cuisine</label>
+            <label className="labl" htmlFor="description">Cuisine</label>
             <input
               type="text"
               className={styles.text}
@@ -73,7 +74,7 @@ const UpdateDish = () => {
             />
           </div>
           <div>
-            <label htmlFor="price">Price</label>
+            <label className='labl' htmlFor="price">Price</label>
             <input
               type="text"
               className={styles.text}
@@ -84,7 +85,7 @@ const UpdateDish = () => {
             />
           </div>
           <div>
-            <label htmlFor="tags">Tags</label>
+            <label className='labl' htmlFor="tags">Tags</label>
             <input
               type="text"
               className={styles.text}

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link, useNavigate , useParams} from "react-router-dom";
 import styles from "./style.module.css";
 import { Form, Button } from 'react-bootstrap';
+import { baseUrl } from "../../API/Api";
+import Restaurantheader from "../../UserSide/NavBar/Restaurantheader";
 
 const AddDish = () => {
     let navigate=useNavigate()
@@ -16,11 +18,7 @@ const AddDish = () => {
 
   const {id} = useParams();
   const { name, description, price,tags } = dish;
-  // const [selectedImage, setSelectedImage] = useState(null);
-
-  // const handleImageChange = (event) => {
-  //   setSelectedImage(event.target.files[0]);
-  // };
+  
 
 
   const onInputChange = (e) => {
@@ -37,7 +35,7 @@ const AddDish = () => {
     formData.append('tags', tags);
     formData.append('file', file);
 
-    axios.post('http://localhost:8080/menu-item/create', formData)
+    axios.post(`${baseUrl}/menu-item/create`, formData)
       .then((response) => {
         console.log(response);
         navigate(-1);
@@ -54,6 +52,7 @@ const AddDish = () => {
 
   return (
     <div>
+      <Restaurantheader/>
       <div className={styles.box}>
         <h2>Add Dish</h2>
           <form onSubmit={(e)=>onSubmit(e)}>

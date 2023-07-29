@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 
-import com.example.springapp.model.MenuItem;
+import com.example.springapp.model.MenuItems;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +17,11 @@ public class OrderRequest {
     private int customerId;
     private String customerName;
     @OneToMany( cascade = CascadeType.ALL )
-    private List<MenuItem> items;
+    private List<MenuItems> items;
     private double totalCost;
     private String deliveryAddress;
+    private String restaurantName;
+    private String restaurantLocation;
+    private String status;
     
 }
