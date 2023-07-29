@@ -1,5 +1,3 @@
-// Header.js
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.jpeg';
@@ -27,8 +25,10 @@ const Header = () => {
           <div className="options-container">
             <div className="profile-options">
               <Link to="/profile">Profile</Link>
-              {/* <Link to="/review">Review</Link> */}
-              <button onClick={handleLogout} >Log out</button>
+              <Link to="/user">Explore</Link>
+              <Link to="/vieworder">Orders</Link>
+              <Link to="/support">Support</Link>
+              <Link onClick={handleLogout} >Logout</Link>
             </div>
           </div>
         )}
@@ -41,7 +41,8 @@ const logoStyle = {
   width: '75px',
   height: '75px',
   marginRight: '10px',
-  border: '5px solid red',
+  borderRadius: '10px',
+  
 };
 
 const profilePicStyle = {

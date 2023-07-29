@@ -2,12 +2,13 @@ import React, { useState,useEffect } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../../API/Api";
 
 export const Register = (props) => {
-  // const navigate=useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [data,setData]=useState([]);
   const [city,setCity]=useState([]);
+  const [serverSideError, SetServer ] = useState("");
   const initialState = {
   form: {
     name: "",
@@ -67,12 +68,16 @@ export const Register = (props) => {
   const handleSubmit  = async(e) => {
     e.preventDefault(); 
     console.log(formData);
-    axios.post("http://localhost:8080/api/auth/signup", formData)
+    axios.post(`${baseUrl}/api/auth/signup`, formData)
       .then(res => {
         console.log(res.data);
+        console.log(res);
         navigate("/login");
       } )
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err.response.data)
+        SetServer(err.response.data)
+      })
   }  
 
   const handleClose = () => {
@@ -129,23 +134,18 @@ export const Register = (props) => {
           <label htmlFor="role">Your Role</label>
           <select value={formData.role} onChange={handleInputChange} id="role" name="role"  required> 
           <option value=''>Your Role</option>
-          <option value='user'>user</option>
-          <option value='admin'>admin</option>
-          <option value='restaurant'>restaurant</option>
+          <option value='user'>Customer</option>
+          <option value='admin'>Admin</option>
+          <option value='restaurant'>Restaurant</option>
+          <option value='delivery'>Delivery</option>
           </select>
           
+          {serverSideError !=="" && <div style={"color: white "}  >{serverSideError}</div> }
+
           <button type="submit" className="btn">Register</button>
       </form>
     </div>
   </div>
-
-
   )  
-
-    
-        
-    
-
-    
 }
 export default Register;

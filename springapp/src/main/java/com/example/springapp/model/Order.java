@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -28,9 +29,32 @@ public class Order {
     private String customerName;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<MenuItem> items;
+    private List<MenuItems> items;
 
     private double totalCost;
     private String deliveryAddress;
     private Date deliveryTime;
+    private String status;
+
+    // pass tc
+    private long restaurantId;
+    private String restaurantName;
+    private String restaurantLocation;
+    private Long deliveryExecutiveId;
+    private String deliveryName;
+    private String delivreyPhone;
+    private Long paymentId;
+    public Order(Long id, Long restaurantId, Long deliveryExecutiveId, Long paymentId, double totalCost, String customerName,  Date deliveryTime, String deliveryAddress
+           ) {
+        this.id = id;
+        this.customerName = customerName;
+        this.totalCost = totalCost;
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryTime = deliveryTime;
+        this.restaurantId = restaurantId;
+        this.deliveryExecutiveId = deliveryExecutiveId;
+        this.paymentId = paymentId;
+    }
+
+    
 }
