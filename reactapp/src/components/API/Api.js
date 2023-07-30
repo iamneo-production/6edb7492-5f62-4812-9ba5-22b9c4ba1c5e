@@ -1,1 +1,1 @@
-export const baseUrl = "https://ide-abaabfefddbfeabebeabcbacbfccbbebfcae.project.examly.io/proxy/8080/";
+export const baseUrl = "https://ide-abaabfefddbfeabebeabeaeaadbdbabf.project.examly.io/proxy/8080";
