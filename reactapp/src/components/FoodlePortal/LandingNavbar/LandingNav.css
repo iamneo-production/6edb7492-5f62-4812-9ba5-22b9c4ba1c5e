@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Dancing+Script:wght@400;500&family=Tilt+Prism&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,800;1,900&display=swap');
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,300;0,500;1,700&family=Crimson+Text:ital,wght@0,600;1,700&family=Dancing+Script:wght@400;500&display=swap');
+
+/* *{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+} */
+
+
+
+
+
+
+.unorder{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 7%;
+    margin-top: -10px;
+    margin-right: -200px;
+    padding-left: 650px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 110px;
+    list-style: none;
+    
+}
+.a1{ 
+    margin: 2px;
+    font-size: 22px;
+    font-weight: 300;
+    padding-right: 5px;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    align-items:flex-start;
+    margin-right: 50px;
+}
+
+
+
+
+
+
+.Header .Navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color:rgba(114, 76, 6, 0.848);
+    
+}
+.Header .Navbar .li .link{
+    color: white;
+    font-size: 45px;
+}
+
+.Header .Navbar a:hover{
+    color:#2D2D82;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 0.5rem;
+    font-size: 28px;
+}
+.Header .search input{
+    width: 100px;
+    padding-left: 10px;
+    color: #ffc107;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 0.5rem;
+    font-size: px;
+}
