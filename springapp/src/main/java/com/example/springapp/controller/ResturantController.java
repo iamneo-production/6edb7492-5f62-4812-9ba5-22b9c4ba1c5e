@@ -20,10 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.springapp.dto.ResutarantResponse;
+import com.example.springapp.model.Image;
 import com.example.springapp.model.Restaurant;
+import com.example.springapp.model.Review;
 import com.example.springapp.service.RestaurantService;
+import com.example.springapp.utilities.ImageUtil;
 
-import springfox.documentation.annotations.ApiIgnore;
+//import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping("/restaurant")
@@ -33,7 +36,7 @@ public class ResturantController {
     @Autowired
     private RestaurantService restaurantService;
 
-    @ApiIgnore
+    //@ApiIgnore
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Restaurant createRestaurant(@RequestBody Restaurant restaurant) {
@@ -50,7 +53,7 @@ public class ResturantController {
         return "Restaurant created";
     }
 
-    @ApiIgnore
+    //@ApiIgnore
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Restaurant> getAllRestaurants() {
@@ -59,8 +62,19 @@ public class ResturantController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public String updateRestaurant(@RequestBody Restaurant restaurant) {
-        restaurantService.updateRestaurant(restaurant);
+    public String updateRestaurant(@RequestPart("file") MultipartFile file, @RequestParam String restaurantName,
+            @RequestParam String restaurantLocation, @RequestParam Long restaurantContact,@RequestParam Long restaurantId) throws IOException {
+    	ResutarantResponse rest=new ResutarantResponse();
+    	rest.setRestaurantId(restaurantId);
+    	rest.setRestaurantName(restaurantName);
+    	rest.setRestaurantContact(restaurantContact);
+    	rest.setRestaurantLocation(restaurantLocation);
+    	Image image = new Image();
+        image.setName(file.getOriginalFilename());
+        image.setType(file.getContentType());
+        image.setImageData(ImageUtil.compressImage(file.getBytes()));
+        rest.setImages(image);
+        restaurantService.updateRestaurant(rest);
         return "Restaurant Updated";
     }
 
@@ -88,7 +102,7 @@ public class ResturantController {
         return oneRestaurantList;
     }
 
-    @ApiIgnore
+    //@ApiIgnore
     @PostMapping("/link")
     @ResponseStatus(HttpStatus.CREATED)
     public String linkRestaurant(@RequestParam Long restaurantId, @RequestParam Long menuItemId) {
@@ -101,6 +115,13 @@ public class ResturantController {
     public String deleteRestaurant(@RequestParam Long id) {
         restaurantService.deleteRestaurant(id);
         return "Restaurant deleted";
+    }
+
+    @PostMapping("/review")
+    @ResponseStatus(HttpStatus.CREATED)
+    public String addReview(@RequestParam Long restaurantId,  @RequestBody Review review) {
+        restaurantService.addReview(restaurantId, review);
+        return "Review added";
     }
 
 

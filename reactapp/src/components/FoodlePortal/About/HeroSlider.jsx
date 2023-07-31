@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -28,19 +27,25 @@ const HeroSlider = () => {
         desc: "Savor Every Bite: Experience the finest cuisines from top-rated restaurants",
         imgUrl: sliderImg03,
       },
-    // Add more slider data objects as needed
   ];
 
   return (
-    <section>
-      <Container>
+
+
+
+    
+    <section className='bg2'>
+     
+      
         <Slider>
           
           {sliderData.map((item) => (
             <div key={item.title}>
+             <div className='go2'>  Find the best restraunts, cafes & explore more about food!!!</div>
               <div className='slider-wrapper '>
+             
                 <div className='slider_content '>
-                  <h2 className='mb-3'>{item.title}</h2>
+                  <h2 className='title1'>{item.title}</h2>
                   <br/>
                   <br/>
                   <br/>
@@ -53,7 +58,6 @@ const HeroSlider = () => {
             </div>
           ))}
         </Slider>
-      </Container>
     </section>
   );
 };
