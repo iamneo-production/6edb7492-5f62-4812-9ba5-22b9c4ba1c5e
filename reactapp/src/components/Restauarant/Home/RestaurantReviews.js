@@ -5,7 +5,7 @@ const RatingStars = ({ rating }) => {
   // Function to generate star elements based on the rating
   const renderStars = () => {
     const fullStars = Math.floor(rating); // Number of full stars
-    const halfStar = rating - fullStars >= 0.5; // Check if there's a half star
+    const halfStar = rating - fullStars >= 0.5;// Check if there's a half star
     const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Calculate the number of empty stars
 
     const stars = [];
@@ -37,7 +37,7 @@ const RestaurantReview = ({ reviewState,setShowReview }) => {
   const [responses, setResponses] = useState([]);
 
   useEffect(() => {
-    // Load responses from localStorage on initial render
+     // Load responses from localStorage on initial render 
     const storedResponses = localStorage.getItem('responses');
     if (storedResponses) {
       setResponses(JSON.parse(storedResponses));
@@ -55,10 +55,11 @@ const RestaurantReview = ({ reviewState,setShowReview }) => {
   const handleSubmit = () => {
     // Add the submitted response to the responses array
     const updatedResponses = [...responses, response];
-    setResponses(updatedResponses);
     // Save responses to localStorage
+    setResponses(updatedResponses);
+     // Reset the response state after submission
     localStorage.setItem('responses', JSON.stringify(updatedResponses));
-    // Reset the response state after submission
+   
     setResponse('');
   };
 
